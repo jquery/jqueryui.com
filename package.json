@@ -24,7 +24,7 @@
 		"grunt-clean": "0.3.0",
 		"grunt-html": "0.1.1",
 		"grunt-wordpress": "1.0.0",
-		"grunt-jquery-content": "0.2.1"
+		"grunt-jquery-content": "0.2.2"
 	},
 	"keywords" : []
 }
