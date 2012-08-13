@@ -23,12 +23,12 @@ grunt.initConfig({
 	},
 	watch: {
 		pages: {
-			files: "page/*.html",
+			files: "page/**.html",
 			tasks: "deploy"
 		}
 	},
 	"build-pages": {
-		all: grunt.file.expandFiles( "page/**/*.html" )
+		all: grunt.file.expandFiles( "page/**/*.md" )
 	},
 	"build-resources": {
 		all: grunt.file.expandFiles( "resources/*" )
@@ -52,8 +52,30 @@ grunt.registerTask( "build-download", function() {
 	grunt.log.write( "Wrote page/download.html and " + resources.length + " resources." );
 });
 
+// TODO: Merge with grunt-jquery-content
+grunt.registerMultiTask( "build-pages", "Process markdown files as pages and syntax higlight code snippets", function() {
+	var markdown = require( "markdown" ).markdown,
+		marked = require( "marked" ),
+		files = this.data,
+		targetDir = grunt.config( "wordpress.dir" ) + "/posts/";
+
+	files.forEach(function( file ) {
+		var post = grunt.helper( "wordpress-parse-post", file ),
+			content = marked( post.content );
+
+		// TODO: Why is this in anysc callback style if it's sync?
+		grunt.helper( "syntax-highlight", { content: content },
+			function( error, html ) {
+				content = html;
+			});
+
+		delete post.content;
+		grunt.file.write( targetDir + file.replace( /md$/, "html" ),
+			"<script>" + JSON.stringify( post ) + "</script>\n" + content );
+	});
+});
+
 grunt.registerTask( "default", "lint" );
 grunt.registerTask( "build-wordpress", "clean lint build-pages build-resources");
-grunt.registerTask( "deploy", "wordpress-deploy" );
 
 };
