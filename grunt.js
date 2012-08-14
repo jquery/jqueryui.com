@@ -54,8 +54,7 @@ grunt.registerTask( "build-download", function() {
 
 // TODO: Merge with grunt-jquery-content
 grunt.registerMultiTask( "build-pages", "Process markdown files as pages and syntax higlight code snippets", function() {
-	var markdown = require( "markdown" ).markdown,
-		marked = require( "marked" ),
+	var marked = require( "marked" ),
 		files = this.data,
 		targetDir = grunt.config( "wordpress.dir" ) + "/posts/";
 
