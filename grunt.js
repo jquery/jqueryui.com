@@ -43,11 +43,11 @@ grunt.initConfig({
 grunt.registerTask( "build-download", function() {
 	var path = require( "path" ),
 		dir = path.dirname( require.resolve( "download.jqueryui.com" ) ),
-		markup = require("download.jqueryui.com")();
-	grunt.file.write( grunt.config( "wordpress.dir" ) + "/posts/page/download.html", "<script>{\n \"title\": \"Downloadbuilder\"\n}</script>" + markup );
+		markup = require( "download.jqueryui.com" )( "http://download.jqueryui.com/download" );
+	grunt.file.write( grunt.config( "wordpress.dir" ) + "/posts/page/download.html", "<script>{\n \"title\": \"Downloadbuilder\"\n}</script>\n" + markup );
 	var resources = grunt.file.expandFiles( dir + "/app/**" );
 	resources.forEach(function( file ) {
-		grunt.file.copy( file, file.replace( dir + "/app", "dist" ) );
+		grunt.file.copy( file, file.replace( dir + "/app", grunt.config( "wordpress.dir" ) ) );
 	});
 	grunt.log.write( "Wrote page/download.html and " + resources.length + " resources." );
 });
