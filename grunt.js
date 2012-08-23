@@ -54,13 +54,12 @@ grunt.registerTask( "build-download", function() {
 
 // TODO: Merge with grunt-jquery-content
 grunt.registerMultiTask( "build-pages", "Process markdown files as pages and syntax higlight code snippets", function() {
-	var marked = require( "marked" ),
-		files = this.data,
+	var files = this.data,
 		targetDir = grunt.config( "wordpress.dir" ) + "/posts/";
 
 	files.forEach(function( file ) {
 		var post = grunt.helper( "wordpress-parse-post", file ),
-			content = marked( post.content );
+			content = grunt.helper( "parse-markdown", post.content, post.toc );
 
 		// TODO: Why is this in anysc callback style if it's sync?
 		grunt.helper( "syntax-highlight", { content: content },
@@ -69,9 +68,39 @@ grunt.registerMultiTask( "build-pages", "Process markdown files as pages and syn
 			});
 
 		delete post.content;
+		delete post.toc;
 		grunt.file.write( targetDir + file.replace( /md$/, "html" ),
 			"<script>" + JSON.stringify( post ) + "</script>\n" + content );
 	});
+});
+
+grunt.registerHelper( "parse-markdown", function( src, generateToc ) {
+	var toc = "",
+		marked = require( "marked" ),
+		tokens = marked.lexer( src );
+
+	if ( generateToc ) {
+		tokens.filter(function( item ) {
+			if ( item.type !== "heading" ) {
+				return false;
+			}
+
+			item.tocText = item.text;
+			item.tocId = item.text
+				.replace( /\W+/g, "-" )
+				.replace( /^-+|-+$/, "" )
+				.toLowerCase();
+			item.text += " <a href='#" + item.tocId + "' id='" + item.tocId + "'>link</a>";
+			return true;
+		}).forEach(function( item ) {
+			toc += Array( (item.depth - 1) * 2 + 1 ).join( " " ) + "* " +
+				"[" + item.tocText + "](#" + item.tocId + ")\n";
+		});
+
+		tokens = marked.lexer( toc ).concat( tokens );
+	}
+
+	return marked.parser( tokens );
 });
 
 grunt.registerTask( "default", "lint" );
