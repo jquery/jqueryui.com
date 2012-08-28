@@ -38,18 +38,32 @@ grunt.initConfig({
 	}, grunt.file.readJSON( "config.json" ) )
 });
 
-// TODO make this work, then include it in the build-wordpress alias below
-// requires actually publishing the download.jqueryui.com module and adding it to package.json
 grunt.registerTask( "build-download", function() {
 	var path = require( "path" ),
 		dir = path.dirname( require.resolve( "download.jqueryui.com" ) ),
-		markup = require( "download.jqueryui.com" )( "http://download.jqueryui.com/download" );
-	grunt.file.write( grunt.config( "wordpress.dir" ) + "/posts/page/download.html", "<script>{\n \"title\": \"Downloadbuilder\"\n}</script>\n" + markup );
-	var resources = grunt.file.expandFiles( dir + "/app/**" );
-	resources.forEach(function( file ) {
-		grunt.file.copy( file, file.replace( dir + "/app", grunt.config( "wordpress.dir" ) ) );
+		done = this.async();
+	// at this point, the download builder repo is available, so let's initialize it
+	grunt.utils.spawn({
+		cmd: "grunt",
+		// TODO need to set this as config property or use the version from package.json
+		args: [ "prepare:master" ],
+		opts: {
+			cwd: "node_modules/download.jqueryui.com"
+		}
+	}, function(error) {
+		if (error) {
+			done(error);
+		}
+		var markup = require( "download.jqueryui.com" )( "http://download.jqueryui.com/download" );
+		grunt.file.write( grunt.config( "wordpress.dir" ) + "/posts/page/download.html", "<script>{\n \"title\": \"Downloadbuilder\"\n}</script>\n" + markup );
+		var resources = grunt.file.expandFiles( dir + "/app/**" );
+		resources.forEach(function( file ) {
+			grunt.file.copy( file, file.replace( dir + "/app", grunt.config( "wordpress.dir" ) ) );
+		});
+		grunt.log.write( "Wrote page/download.html and " + resources.length + " resources." );
+		done();
 	});
-	grunt.log.write( "Wrote page/download.html and " + resources.length + " resources." );
+
 });
 
 // TODO: Merge with grunt-jquery-content
