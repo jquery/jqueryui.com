@@ -43,6 +43,7 @@ grunt.registerTask( "build-download", function() {
 		dir = path.dirname( require.resolve( "download.jqueryui.com" ) ),
 		done = this.async();
 	// at this point, the download builder repo is available, so let's initialize it
+	grunt.log.writeln("Initializing download module, might take a while");
 	grunt.utils.spawn({
 		cmd: "grunt",
 		// TODO need to set this as config property or use the version from package.json
@@ -67,6 +68,6 @@ grunt.registerTask( "build-download", function() {
 });
 
 grunt.registerTask( "default", "lint" );
-grunt.registerTask( "build-wordpress", "clean lint build-pages build-resources");
+grunt.registerTask( "build-wordpress", "clean lint build-pages build-resources build-download");
 
 };
