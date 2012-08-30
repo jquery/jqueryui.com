@@ -51,9 +51,11 @@ grunt.registerTask( "build-download", function() {
 		opts: {
 			cwd: "node_modules/download.jqueryui.com"
 		}
-	}, function(error) {
+	}, function(error, result, stringResult) {
 		if (error) {
-			done(error);
+			grunt.log.error( error, stringResult );
+			done(false);
+			return;
 		}
 		var markup = require( "download.jqueryui.com" )( "http://download.jqueryui.com/download" );
 		grunt.file.write( grunt.config( "wordpress.dir" ) + "/posts/page/download.html", "<script>{\n \"title\": \"Downloadbuilder\"\n}</script>\n" + markup );
