@@ -23,7 +23,7 @@
 		"grunt": "0.3.x",
 		"grunt-clean": "0.3.0",
 		"grunt-html": "0.1.1",
-		"grunt-wordpress": "1.0.2",
+		"grunt-wordpress": "1.0.3",
 		"grunt-jquery-content": "0.4.x",
 		"download.jqueryui.com": "git://github.com/jquery/download.jqueryui.com.git"
 	},
