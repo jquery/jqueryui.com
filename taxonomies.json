@@ -1,0 +1,16 @@
+{
+	"category": [
+		{
+			"slug": "uncategorized",
+			"name": "Uncategorized"
+		},
+		{
+			"slug": "interactions",
+			"name": "Interactions"
+		},
+		{
+			"slug": "widgets",
+			"name": "Widgets"
+		}
+	]
+}

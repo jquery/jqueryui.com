@@ -177,7 +177,13 @@ grunt.registerTask( "build-demos", function() {
 	}
 });
 
+grunt.registerTask( "copy-taxonomies", function() {
+	grunt.file.copy( "taxonomies.json",
+		grunt.config( "wordpress.dir" ) + "/taxonomies.json" );
+});
+
 grunt.registerTask( "default", "lint" );
-grunt.registerTask( "build-wordpress", "clean lint build-pages build-resources build-download build-demos" );
+grunt.registerTask( "build", "build-pages build-resources build-download build-demos copy-taxonomies" );
+grunt.registerTask( "build-wordpress", "clean lint build" );
 
 };
