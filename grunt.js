@@ -78,28 +78,54 @@ grunt.registerTask( "build-demos", function() {
 	this.requires( "build-download" );
 
 	var path = require( "path" ),
+		jsdom = require( "jsdom" ).jsdom,
 		repoDir = path.dirname( require.resolve( "download.jqueryui.com" ) ) +
 			"/tmp/jquery-ui",
 		demosDir = repoDir + "/demos",
 		distDir = repoDir + "/dist",
-		targetDir = grunt.config( "wordpress.dir" ) + "/resources/demos";
+		targetDir = grunt.config( "wordpress.dir" ) + "/resources/demos",
+		demoList = {};
 
 	// Copy all demos files to /resources/demos
 	grunt.file.recurse( demosDir, function( abspath, rootdir, subdir, filename ) {
-		// skip the main index page
-		if ( !subdir ) {
+		if ( filename === "index.html" ) {
 			return;
 		}
 
-		var dest = targetDir + "/" + subdir + "/" + filename;
+		var content, document, description, title,
+			dest = targetDir + "/" + subdir + "/" + filename;
 		if ( /html$/.test( filename ) ) {
-			grunt.file.copy( abspath, dest, {
-				process: replaceResources
-			});
+			content = replaceResources( grunt.file.read( abspath ) );
+
+			if ( !( /(\/)/.test( subdir ) ) ) {
+				document = jsdom( content, null, {
+					features: {
+						FetchExternalResources: [],
+						ProcessExternalResources: false
+					}
+				});
+				description = document.getElementsByClassName( "demo-description" )[0];
+				description.parentNode.removeChild( description );
+				title = document.getElementsByTagName( "title" )[0];
+				if ( !demoList[ subdir ] ) {
+					demoList[ subdir ] = {};
+				}
+				demoList[ subdir ][ filename.substr( 0, filename.length - 5 ) ] = {
+					title: title.innerHTML.replace( /[^\-]+\s-\s/, '' ),
+					description: description.innerHTML
+				};
+
+				grunt.file.write( dest, '<!doctype html>\n' + document.innerHTML );
+			} else {
+				grunt.file.write( dest, content );
+			}
 		} else {
 			grunt.file.copy( abspath, dest );
 		}
 	});
+
+	// Create list of all demos
+	grunt.file.write( targetDir + "/demo-list.json", JSON.stringify( demoList ) );
 
 	// Copy the built files into /resources/demos
 	grunt.file.copy(
