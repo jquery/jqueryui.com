@@ -11,6 +11,10 @@
 		{
 			"slug": "widgets",
 			"name": "Widgets"
+		},
+		{
+			"slug": "effects",
+			"name": "Effects"
 		}
 	]
 }
