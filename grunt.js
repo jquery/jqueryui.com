@@ -39,31 +39,9 @@ grunt.initConfig({
 });
 
 grunt.registerTask( "build-download", function() {
-	function writeFiles() {
-		var download = require( "download.jqueryui.com" ),
-			resources = grunt.file.expandFiles( dir + "/app/**" );
-
-		grunt.file.write( grunt.config( "wordpress.dir" ) + "/posts/page/download.html",
-			"<script>{\n \"title\": \"Download Builder\"\n}</script>\n" + download( "http://download.jqueryui.com/download" ) );
-
-		grunt.file.write( grunt.config( "wordpress.dir" ) + "/posts/page/themeroller.html",
-			"<script>{\n \"title\": \"ThemeRoller\"\n}</script>\n" + download.themeroller() );
-
-		resources.forEach(function( file ) {
-			grunt.file.copy( file, file.replace( dir + "/app", grunt.config( "wordpress.dir" ) ) );
-		});
-
-		grunt.log.write( "Wrote download.html, themeroller.html and " + resources.length + " resources." );
-	}
 	var path = require( "path" ),
 		dir = path.dirname( require.resolve( "download.jqueryui.com" ) ),
 		done = this.async();
-
-	if ( grunt.option( "noprepare" ) ) {
-		writeFiles();
-		done();
-		return;
-	}
 	// at this point, the download builder repo is available, so let's initialize it
 	grunt.log.writeln( "Initializing download module, might take a while..." );
 	grunt.utils.spawn({
@@ -79,7 +57,18 @@ grunt.registerTask( "build-download", function() {
 			done( false );
 			return;
 		}
-		writeFiles();
+
+		var markup = require( "download.jqueryui.com" )( "http://download.jqueryui.com/download" ),
+			resources = grunt.file.expandFiles( dir + "/app/**" );
+
+		grunt.file.write( grunt.config( "wordpress.dir" ) + "/posts/page/download.html",
+			"<script>{\n \"title\": \"Download Builder\"\n}</script>\n" + markup );
+
+		resources.forEach(function( file ) {
+			grunt.file.copy( file, file.replace( dir + "/app", grunt.config( "wordpress.dir" ) ) );
+		});
+
+		grunt.log.write( "Wrote page/download.html and " + resources.length + " resources." );
 		done();
 	});
 });
