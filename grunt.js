@@ -40,14 +40,16 @@ grunt.initConfig({
 
 grunt.registerTask( "build-download", function() {
 	function writeFiles() {
-		var download = require( "download.jqueryui.com" ),
-			resources = grunt.file.expandFiles( dir + "/app/**" );
+		var frontend = new ( require( "download.jqueryui.com" ) )( "http://download.jqueryui.com" ),
+			resources = grunt.file.expandFiles( dir + "/app/**" ),
+			download = frontend.download,
+			themeroller = frontend.themeroller;
 
 		grunt.file.write( grunt.config( "wordpress.dir" ) + "/posts/page/download.html",
-			"<script>{\n \"title\": \"Download Builder\"\n}</script>\n" + download( "http://download.jqueryui.com/download" ) );
+			"<script>{\n \"title\": \"Download Builder\"\n}</script>\n" + download.index() );
 
 		grunt.file.write( grunt.config( "wordpress.dir" ) + "/posts/page/themeroller.html",
-			"<script>{\n \"title\": \"ThemeRoller\"\n}</script>\n" + download.themeroller() );
+			"<script>{\n \"title\": \"ThemeRoller\"\n}</script>\n" + themeroller.index() );
 
 		resources.forEach(function( file ) {
 			grunt.file.copy( file, file.replace( dir + "/app", grunt.config( "wordpress.dir" ) ) );
