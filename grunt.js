@@ -97,6 +97,7 @@ grunt.registerTask( "build-demos", function() {
 		demosDir = repoDir + "/demos",
 		distDir = repoDir + "/dist",
 		targetDir = grunt.config( "wordpress.dir" ) + "/resources/demos",
+		highlightDir = targetDir + "-highlight",
 		demoList = {};
 
 	// Copy all demos files to /resources/demos
@@ -106,7 +107,9 @@ grunt.registerTask( "build-demos", function() {
 		}
 
 		var content, document, description, title,
-			dest = targetDir + "/" + subdir + "/" + filename;
+			dest = targetDir + "/" + subdir + "/" + filename,
+			highlightDest = highlightDir + "/" + subdir + "/" + filename;
+
 		if ( /html$/.test( filename ) ) {
 			content = replaceResources( grunt.file.read( abspath ) );
 
@@ -128,7 +131,16 @@ grunt.registerTask( "build-demos", function() {
 					description: description.innerHTML
 				};
 
-				grunt.file.write( dest, '<!doctype html>\n' + document.innerHTML );
+				// Save modified demo
+				content = "<!doctype html>\n" + document.innerHTML;
+				grunt.file.write( dest, content );
+
+				// Create syntax highlighted version
+				document.innerHTML = "<pre><code data-linenum='true'></code></pre>";
+				document.getElementsByTagName( "code" )[0].appendChild(
+					document.createTextNode( content ) );
+				grunt.file.write( highlightDest,
+					grunt.helper( "syntax-highlight", { content: document.innerHTML } ) );
 			} else {
 				grunt.file.write( dest, content );
 			}
