@@ -160,12 +160,12 @@ grunt.registerTask( "build-demos", function() {
 	});
 
 	function replaceResources( source ) {
-		// ../../jquery-x.y.z.js -> /resources/demos/jquery.js
+		// ../../jquery-x.y.z.js -> CDN
 		source = source.replace(
 			/<script src="\.\.\/\.\.\/jquery-\d+\.\d+(\.\d+)?\.js">/,
 			"<script src=\"http://code.jquery.com/jquery-1.8.2.js\">" );
 
-		// ../../ui/* -> /resources/demos/jquery-ui.js
+		// ../../ui/* -> CDN
 		// Only the first script is replaced, all subsequent scripts are dropped,
 		// including the full line
 		source = source.replace(
@@ -180,7 +180,7 @@ grunt.registerTask( "build-demos", function() {
 			/<script src="\.\.\/\.\.\/external\//g,
 			"<script src=\"/resources/demos/external/" );
 
-		// ../../ui/themes/* -> /resources/demos/theme/jquery-ui.css
+		// ../../ui/themes/* -> CDN
 		source = source.replace(
 			/<link rel="stylesheet" href="\.\.\/\.\.\/themes[^>]+>/,
 			"<link rel=\"stylesheet\" href=\"http://code.jquery.com/ui/" + version + "/themes/base/jquery-ui.css\">" );
