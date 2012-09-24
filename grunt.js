@@ -98,7 +98,9 @@ grunt.registerTask( "build-demos", function() {
 		distDir = repoDir + "/dist",
 		targetDir = grunt.config( "wordpress.dir" ) + "/resources/demos",
 		highlightDir = targetDir + "-highlight",
-		demoList = {};
+		demoList = {},
+		// TODO: Figure out how we want to manage versions
+		version = "1.9.0-rc.1";
 
 	// Copy all demos files to /resources/demos
 	grunt.file.recurse( demosDir, function( abspath, rootdir, subdir, filename ) {
@@ -152,16 +154,6 @@ grunt.registerTask( "build-demos", function() {
 	// Create list of all demos
 	grunt.file.write( targetDir + "/demo-list.json", JSON.stringify( demoList ) );
 
-	// Copy the built files into /resources/demos
-	grunt.file.copy(
-		grunt.file.expandFiles( repoDir + "/jquery-*.js" )[ 0 ],
-		targetDir + "/jquery.js" );
-	grunt.file.copy( distDir + "/jquery-ui.js", targetDir + "/jquery-ui.js" );
-	grunt.file.copy( distDir + "/jquery-ui.css", targetDir + "/theme/jquery-ui.css" );
-	grunt.file.expandFiles( distDir + "/images/**" ).forEach(function( filename ) {
-		grunt.file.copy( filename, targetDir + "/theme/images/" + path.basename( filename ) );
-	});
-
 	// Copy externals into /resources/demos/external
 	grunt.file.expandFiles( repoDir + "/external/**" ).forEach(function( filename ) {
 		grunt.file.copy( filename, targetDir + "/external/" + path.basename( filename ) );
@@ -171,14 +163,14 @@ grunt.registerTask( "build-demos", function() {
 		// ../../jquery-x.y.z.js -> /resources/demos/jquery.js
 		source = source.replace(
 			/<script src="\.\.\/\.\.\/jquery-\d+\.\d+(\.\d+)?\.js">/,
-			"<script src=\"/resources/demos/jquery.js\">" );
+			"<script src=\"http://code.jquery.com/jquery-1.8.2.js\">" );
 
 		// ../../ui/* -> /resources/demos/jquery-ui.js
 		// Only the first script is replaced, all subsequent scripts are dropped,
 		// including the full line
 		source = source.replace(
 			/<script src="\.\.\/\.\.\/ui\/[^>]+/,
-			"<script src=\"/resources/demos/jquery-ui.js\">" );
+			"<script src=\"http://code.jquery.com/ui/" + version + "/jquery-ui.js\">" );
 		source = source.replace(
 			/^.*<script src="\.\.\/\.\.\/ui\/[^>]+><\/script>\n/gm,
 			"" );
@@ -191,7 +183,7 @@ grunt.registerTask( "build-demos", function() {
 		// ../../ui/themes/* -> /resources/demos/theme/jquery-ui.css
 		source = source.replace(
 			/<link rel="stylesheet" href="\.\.\/\.\.\/themes[^>]+>/,
-			"<link rel=\"stylesheet\" href=\"/resources/demos/theme/jquery-ui.css\">" );
+			"<link rel=\"stylesheet\" href=\"http://code.jquery.com/ui/" + version + "/themes/base/jquery-ui.css\">" );
 
 		// ../demos.css -> /resources/demos/style.css
 		source = source.replace(
