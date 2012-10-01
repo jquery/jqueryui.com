@@ -5,6 +5,48 @@
 ## [1.9.0 Changelog](/changelog/1.9.0/)
 Released in the FUTURE!
 
+## [1.8.24 Changelog](/changelog/1.8.24/)
+Released on September 28, 2012
+
+## [1.8.23 Changelog](/changelog/1.8.23/)
+Released on August 15, 2012
+
+## [1.8.22 Changelog](/changelog/1.8.22/)
+Released on July 24, 2012
+
+## [1.8.21 Changelog](/changelog/1.8.21/)
+Released on June 5, 2012
+
+## [1.8.20 Changelog](/changelog/1.8.20/)
+Released on April 30, 2012
+
+## [1.8.19 Changelog](/changelog/1.8.19/)
+Released on April 16, 2012
+
+## [1.8.18 Changelog](/changelog/1.8.18/)
+Released on February 20, 2012
+
+## [1.8.17 Changelog](/changelog/1.8.17/)
+Released on November 29, 2011
+
+## [1.8.16 Changelog](/changelog/1.8.16/)
+Released on August 15, 2011
+
+## [1.8.15 Changelog](/changelog/1.8.15/)
+Released on August 1, 2011
+
+## [1.8.14 Changelog](/changelog/1.8.14/)
+Released on June 17, 2011
+
+## [1.8.13 Changelog](/changelog/1.8.13/)
+Released on May 12, 2011
+
+## [1.8.12 Changelog](/changelog/1.8.12/)
+Released on April 13, 2011
+
+## [1.8.11 Changelog](/changelog/1.8.11/)
+Released on March 5, 2011
+
 <hr class="dots">
 
 Please bear with us while we import older upgrade guides. In the meantime,
