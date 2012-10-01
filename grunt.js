@@ -66,12 +66,12 @@ grunt.registerTask( "build-download", function() {
 		done();
 		return;
 	}
+
 	// at this point, the download builder repo is available, so let's initialize it
 	grunt.log.writeln( "Initializing download module, might take a while..." );
 	grunt.utils.spawn({
 		cmd: "grunt",
-		// TODO need to set this as config property or use the version from package.json
-		args: [ "prepare:master" ],
+		args: [ "prepare" ],
 		opts: {
 			cwd: "node_modules/download.jqueryui.com"
 		}
@@ -92,15 +92,14 @@ grunt.registerTask( "build-demos", function() {
 
 	var path = require( "path" ),
 		jsdom = require( "jsdom" ).jsdom,
-		repoDir = path.dirname( require.resolve( "download.jqueryui.com" ) ) +
-			"/tmp/jquery-ui",
+		downloadModulePath = path.dirname( require.resolve( "download.jqueryui.com" ) ),
+		repoDir = downloadModulePath + "/tmp/jquery-ui",
+		versions = grunt.file.readJSON( downloadModulePath + "/config.json" ),
 		demosDir = repoDir + "/demos",
 		distDir = repoDir + "/dist",
 		targetDir = grunt.config( "wordpress.dir" ) + "/resources/demos",
 		highlightDir = targetDir + "-highlight",
-		demoList = {},
-		// TODO: Figure out how we want to manage versions
-		version = "1.9.0-rc.1";
+		demoList = {};
 
 	// Copy all demos files to /resources/demos
 	grunt.file.recurse( demosDir, function( abspath, rootdir, subdir, filename ) {
@@ -123,14 +122,16 @@ grunt.registerTask( "build-demos", function() {
 					}
 				});
 				description = document.getElementsByClassName( "demo-description" )[0];
-				description.parentNode.removeChild( description );
+				if ( description ) {
+					description.parentNode.removeChild( description );
+				}
 				title = document.getElementsByTagName( "title" )[0];
 				if ( !demoList[ subdir ] ) {
 					demoList[ subdir ] = {};
 				}
 				demoList[ subdir ][ filename.substr( 0, filename.length - 5 ) ] = {
 					title: title.innerHTML.replace( /[^\-]+\s-\s/, '' ),
-					description: description.innerHTML
+					description: description ? description.innerHTML : ""
 				};
 
 				// Save modified demo
@@ -163,14 +164,14 @@ grunt.registerTask( "build-demos", function() {
 		// ../../jquery-x.y.z.js -> CDN
 		source = source.replace(
 			/<script src="\.\.\/\.\.\/jquery-\d+\.\d+(\.\d+)?\.js">/,
-			"<script src=\"http://code.jquery.com/jquery-1.8.2.js\">" );
+			"<script src=\"http://code.jquery.com/jquery-" + versions.jquery + ".js\">" );
 
 		// ../../ui/* -> CDN
 		// Only the first script is replaced, all subsequent scripts are dropped,
 		// including the full line
 		source = source.replace(
 			/<script src="\.\.\/\.\.\/ui\/[^>]+/,
-			"<script src=\"http://code.jquery.com/ui/" + version + "/jquery-ui.js\">" );
+			"<script src=\"http://code.jquery.com/ui/" + versions.jqueryUi + "/jquery-ui.js\">" );
 		source = source.replace(
 			/^.*<script src="\.\.\/\.\.\/ui\/[^>]+><\/script>\n/gm,
 			"" );
@@ -183,7 +184,7 @@ grunt.registerTask( "build-demos", function() {
 		// ../../ui/themes/* -> CDN
 		source = source.replace(
 			/<link rel="stylesheet" href="\.\.\/\.\.\/themes[^>]+>/,
-			"<link rel=\"stylesheet\" href=\"http://code.jquery.com/ui/" + version + "/themes/base/jquery-ui.css\">" );
+			"<link rel=\"stylesheet\" href=\"http://code.jquery.com/ui/" + versions.jqueryUi + "/themes/base/jquery-ui.css\">" );
 
 		// ../demos.css -> /resources/demos/style.css
 		source = source.replace(
