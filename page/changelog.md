@@ -65,6 +65,15 @@ Released on October 25, 2010
 ## [1.8.5 Changelog](/changelog/1.8.5/)
 Released on September 10, 2010
 
+## [1.8.4 Changelog](/changelog/1.8.4/)
+Released on August 5, 2010
+
+## [1.8.2 Changelog](/changelog/1.8.2/)
+Released on May 20, 2010
+
+## [1.8.1 Changelog](/changelog/1.8.1/)
+Released on April 21, 2010
+
 <hr class="dots">
 
 Please bear with us while we import older upgrade guides. In the meantime,
