@@ -3,7 +3,7 @@
 }</script>
 
 ## [1.9.0 Changelog](/changelog/1.9.0/)
-Released in the FUTURE!
+Released on October 5, 2012
 
 ## [1.8.24 Changelog](/changelog/1.8.24/)
 Released on September 28, 2012
