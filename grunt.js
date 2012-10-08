@@ -47,7 +47,8 @@ grunt.registerTask( "build-download", function() {
 
 		grunt.file.write( grunt.config( "wordpress.dir" ) + "/posts/page/download.html",
 			"<script>" + JSON.stringify({
-				title: "Download Builder"
+				title: "Download Builder",
+				pageTemplate: "nosidebar-page.php"
 			}) + "</script>\n" + download.index() );
 
 		grunt.file.write( grunt.config( "wordpress.dir" ) + "/posts/page/themeroller.html",
