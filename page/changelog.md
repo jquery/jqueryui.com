@@ -74,10 +74,13 @@ Released on May 20, 2010
 ## [1.8.1 Changelog](/changelog/1.8.1/)
 Released on April 21, 2010
 
+## [1.8 Changelog](/changelog/1.8/)
+Released on March 18, 2010
+
 <hr class="dots">
 
-Please bear with us while we import older upgrade guides. In the meantime,
-you can find the old upgrade guides on the old docs site:
+We're still working on importing the older changelogs. In the meantime,
+you can find the old changelogs on the old docs site:
 [docs.jquery.com/UI/Changelog](http://docs.jquery.com/UI/Changelog).
 
 We're always looking for help, so if you're looking for an easy way to give
