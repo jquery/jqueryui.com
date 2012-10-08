@@ -46,10 +46,15 @@ grunt.registerTask( "build-download", function() {
 			themeroller = frontend.themeroller;
 
 		grunt.file.write( grunt.config( "wordpress.dir" ) + "/posts/page/download.html",
-			"<script>{\n \"title\": \"Download Builder\"\n}</script>\n" + download.index() );
+			"<script>" + JSON.stringify({
+				title: "Download Builder"
+			}) + "</script>\n" + download.index() );
 
 		grunt.file.write( grunt.config( "wordpress.dir" ) + "/posts/page/themeroller.html",
-			"<script>{\n \"title\": \"ThemeRoller\"\n}</script>\n" + themeroller.index() );
+			"<script>" + JSON.stringify({
+				title: "ThemeRoller",
+				pageTemplate: "nosidebar-page.php"
+			}) + "</script>\n" + themeroller.index() );
 
 		resources.forEach(function( file ) {
 			grunt.file.copy( file, file.replace( dir + "/app", grunt.config( "wordpress.dir" ) ) );
