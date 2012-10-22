@@ -57,7 +57,7 @@ Released on January 19, 2011
 Released on January 13, 2011
 
 ## [1.8.7 Changelog](/changelog/1.8.7/)
-Released on December, 2010
+Released on December 8, 2010
 
 ## [1.8.6 Changelog](/changelog/1.8.6/)
 Released on October 25, 2010
