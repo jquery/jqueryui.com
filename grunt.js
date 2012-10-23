@@ -1,5 +1,5 @@
 module.exports = function( grunt ) {
-"use strict";
+
 grunt.loadNpmTasks( "grunt-clean" );
 grunt.loadNpmTasks( "grunt-html" );
 grunt.loadNpmTasks( "grunt-wordpress" );
@@ -93,15 +93,6 @@ grunt.registerTask( "build-download", function() {
 });
 
 grunt.registerTask( "build-demos", function() {
-	function sortByTitle( a, b ) {
-		if ( a.filename === "default" ) {
-			return -1;
-		}
-		if ( b.filename === "default" ) {
-			return 1;
-		}
-		return a.title > b.title ? 1 : -1;
-	}
 	// We hijack the jquery-ui checkout from download.jqueryui.com
 	this.requires( "build-download" );
 
@@ -114,8 +105,7 @@ grunt.registerTask( "build-demos", function() {
 		distDir = repoDir + "/dist",
 		targetDir = grunt.config( "wordpress.dir" ) + "/resources/demos",
 		highlightDir = targetDir + "-highlight",
-		demoList = {},
-		subdir;
+		demoList = {};
 
 	// Copy all demos files to /resources/demos
 	grunt.file.recurse( demosDir, function( abspath, rootdir, subdir, filename ) {
@@ -143,13 +133,12 @@ grunt.registerTask( "build-demos", function() {
 				}
 				title = document.getElementsByTagName( "title" )[0];
 				if ( !demoList[ subdir ] ) {
-					demoList[ subdir ] = [];
+					demoList[ subdir ] = {};
 				}
-				demoList[ subdir ].push({
-					filename: filename.substr( 0, filename.length - 5 ),
+				demoList[ subdir ][ filename.substr( 0, filename.length - 5 ) ] = {
 					title: title.innerHTML.replace( /[^\-]+\s-\s/, '' ),
 					description: description ? description.innerHTML : ""
-				});
+				};
 
 				// Save modified demo
 				content = "<!doctype html>\n" + document.innerHTML;
@@ -169,12 +158,8 @@ grunt.registerTask( "build-demos", function() {
 		}
 	});
 
-	for ( subdir in demoList ) {
-		demoList[ subdir ].sort( sortByTitle );
-	}
-
 	// Create list of all demos
-	grunt.file.write( targetDir + "/demo-list.json", JSON.stringify( demoList, null, "\t" ) );
+	grunt.file.write( targetDir + "/demo-list.json", JSON.stringify( demoList ) );
 
 	// Copy externals into /resources/demos/external
 	grunt.file.expandFiles( repoDir + "/external/**" ).forEach(function( filename ) {
