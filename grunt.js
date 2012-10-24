@@ -191,7 +191,7 @@ grunt.registerTask( "build-demos", function() {
 		// Only the first script is replaced, all subsequent scripts are dropped,
 		// including the full line
 		source = source.replace(
-			/<script src="\.\.\/\.\.\/ui\/[^>]+/,
+			/<script src="\.\.\/\.\.\/ui\/[^>]+>/,
 			"<script src=\"http://code.jquery.com/ui/" + versions.jqueryUi + "/jquery-ui.js\">" );
 		source = source.replace(
 			/^.*<script src="\.\.\/\.\.\/ui\/[^>]+><\/script>\n/gm,
