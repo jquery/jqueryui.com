@@ -221,6 +221,30 @@ grunt.registerTask( "copy-taxonomies", function() {
 		grunt.config( "wordpress.dir" ) + "/taxonomies.json" );
 });
 
+grunt.registerTask( "create-quickdownload", function() {
+	// We hijack the jquery-ui checkout from download.jqueryui.com
+	this.requires( "build-download" );
+
+	var done = this.async(),
+		path = require( "path" );
+
+	grunt.utils.spawn({
+		cmd: "grunt",
+		args: [ "build:" + path.resolve( "resources/download" ) ],
+		opts: {
+			cwd: "node_modules/download.jqueryui.com"
+		}
+	}, function( error, result, stringResult ) {
+		if ( error ) {
+			grunt.log.error( error, stringResult );
+			done( false );
+			return;
+		}
+		grunt.log.write( result.stdout );
+		done();
+	});
+});
+
 grunt.registerTask( "default", "lint" );
 grunt.registerTask( "build", "build-pages build-resources build-download build-demos copy-taxonomies" );
 grunt.registerTask( "build-wordpress", "clean lint build" );
