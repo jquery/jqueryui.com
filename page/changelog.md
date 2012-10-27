@@ -78,14 +78,46 @@ Released on May 20, 2010
 Released on April 21, 2010
 
 ## [1.8 Changelog](/changelog/1.8/)
-Released on March 18, 2010
+Released on March 18, 2010.
 
-<hr class="dots">
+## [1.8rc3 Changelog](/changelog/1.8rc3/)
+Released on February 25, 2010.
 
-We're still working on importing the older changelogs. In the meantime,
-you can find the old changelogs on the old docs site:
-[docs.jquery.com/UI/Changelog](http://docs.jquery.com/UI/Changelog).
+## [1.8rc2 Changelog](/changelog/1.8rc2/)
+Released on February 16, 2010.
 
-We're always looking for help, so if you're looking for an easy way to give
-back to the community, consider [forking this site](https://github.com/jquery/jqueryui.com),
-adding a chnagelog or two and sending a pull request.
+## [1.8rc1 Changelog](/changelog/1.8rc1/)
+Released on January 27, 2010.
+
+## [1.8b1 Changelog](/changelog/1.8b1/)
+Released on January 20, 2010.
+
+## [1.8a2 Changelog](/changelog/1.8a2/)
+Released on December 29, 2009.
+
+## [1.8a1 Changelog](/changelog/1.8a1/)
+Released on August 12, 2009.
+
+## [1.7.2 Changelog](/changelog/1.7.2/)
+Released on June 19, 2009.
+
+## [1.7.1 Changelog](/changelog/1.7.1/)
+Released on March 18, 2009.
+
+## [1.7 Changelog](/changelog/1.7/)
+Released on March 3, 2009.
+
+## [1.6 Changelog](/changelog/1.6/)
+Released on April 16, 2009.
+
+## [1.5.3 Changelog](/changelog/1.5.3/)
+Released on November 28, 2008.
+
+## [1.5.2 Changelog](/changelog/1.5.2/)
+Released on July 9, 2008.
+
+## [1.5.1 Changelog](/changelog/1.5.1/)
+Released on June 26, 2008.
+
+## [1.5 Changelog](/changelog/1.5/)
+Released on June 8, 2008.
