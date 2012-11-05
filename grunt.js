@@ -4,6 +4,7 @@ grunt.loadNpmTasks( "grunt-clean" );
 grunt.loadNpmTasks( "grunt-html" );
 grunt.loadNpmTasks( "grunt-wordpress" );
 grunt.loadNpmTasks( "grunt-jquery-content" );
+grunt.loadNpmTasks( "grunt-check-modules" );
 
 grunt.initConfig({
 	clean: {
@@ -247,6 +248,6 @@ grunt.registerTask( "create-quickdownload", function() {
 
 grunt.registerTask( "default", "lint" );
 grunt.registerTask( "build", "build-pages build-resources build-download build-demos copy-taxonomies" );
-grunt.registerTask( "build-wordpress", "clean lint build" );
+grunt.registerTask( "build-wordpress", "check-modules clean lint build" );
 
 };
