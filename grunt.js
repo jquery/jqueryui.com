@@ -193,7 +193,7 @@ grunt.registerTask( "build-demos", function() {
 		// including the full line
 		source = source.replace(
 			/<script src="\.\.\/\.\.\/ui\/[^>]+>/,
-			"<script src=\"http://code.jquery.com/ui/" + versions.jqueryUi.stable.version + "/jquery-ui.js\">" );
+			"<script src=\"http://code.jquery.com/ui/" + versions.jqueryUi + "/jquery-ui.js\">" );
 		source = source.replace(
 			/^.*<script src="\.\.\/\.\.\/ui\/[^>]+><\/script>\n/gm,
 			"" );
@@ -206,7 +206,7 @@ grunt.registerTask( "build-demos", function() {
 		// ../../ui/themes/* -> CDN
 		source = source.replace(
 			/<link rel="stylesheet" href="\.\.\/\.\.\/themes[^>]+>/,
-			"<link rel=\"stylesheet\" href=\"http://code.jquery.com/ui/" + versions.jqueryUi.stable.version + "/themes/base/jquery-ui.css\">" );
+			"<link rel=\"stylesheet\" href=\"http://code.jquery.com/ui/" + versions.jqueryUi + "/themes/base/jquery-ui.css\">" );
 
 		// ../demos.css -> /resources/demos/style.css
 		source = source.replace(
