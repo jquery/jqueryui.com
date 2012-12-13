@@ -3,7 +3,7 @@
 }</script>
 
 ## [1.9 Upgrade Guide](/upgrade-guide/1.9/)
-Released in the FUTURE!
+Released on October 5, 2012
 
 <hr class="dots">
 
