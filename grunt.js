@@ -49,13 +49,13 @@ grunt.registerTask( "build-download", function() {
 		grunt.file.write( grunt.config( "wordpress.dir" ) + "/posts/page/download.html",
 			"<script>" + JSON.stringify({
 				title: "Download Builder",
-				pageTemplate: "nosidebar-page.php"
+				pageTemplate: "page-nosidebar.php"
 			}) + "</script>\n" + download.index() );
 
 		grunt.file.write( grunt.config( "wordpress.dir" ) + "/posts/page/themeroller.html",
 			"<script>" + JSON.stringify({
 				title: "ThemeRoller",
-				pageTemplate: "nosidebar-page.php"
+				pageTemplate: "page-nosidebar.php"
 			}) + "</script>\n" + themeroller.index() );
 
 		resources.forEach(function( file ) {
