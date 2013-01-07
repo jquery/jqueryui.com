@@ -24,7 +24,7 @@
 		"grunt-clean": "0.3.0",
 		"grunt-html": "0.1.1",
 		"grunt-wordpress": "1.0.5",
-		"grunt-jquery-content": "0.7.0",
+		"grunt-jquery-content": "0.8.1",
 		"grunt-check-modules": "0.1.0",
 		"download.jqueryui.com": "1.10.0pre.21",
 		"jsdom": "0.2.x"
