@@ -2,6 +2,9 @@
 	"title": "jQuery UI Upgrade Guides"
 }</script>
 
+## [1.10 Upgrade Guide](/upgrade-guide/1.10/)
+Released on January 17, 2013
+
 ## [1.9 Upgrade Guide](/upgrade-guide/1.9/)
 Released on October 5, 2012
 
