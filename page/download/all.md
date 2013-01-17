@@ -2,6 +2,11 @@
 	"title": "All jQuery UI Downloads"
 }</script>
 
+## 1.10.0
+* Released on January 17, 2013
+* [jQuery UI 1.10.0 (source, demos, themes, tests)](/resources/download/jquery-ui-1.10.0.zip)
+* [jQuery UI 1.10.0 Themes](/resources/download/jquery-ui-themes-1.10.0.zip)
+
 ## 1.10.0-rc.1
 * Released on January 9, 2013
 * [jQuery UI 1.10.0-rc.1 (source, demos, themes, tests)](/resources/download/jquery-ui-1.10.0-rc.1.zip)
