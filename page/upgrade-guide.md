@@ -8,12 +8,13 @@ Released on January 17, 2013
 ## [1.9 Upgrade Guide](/upgrade-guide/1.9/)
 Released on October 5, 2012
 
+## [1.8.11 Upgrade Guide](/upgrade-guide/1.8.11/)
+Released on March 15, 2011
+
 <hr class="dots">
 
 Please bear with us while we import older upgrade guides. In the meantime,
 you can find the old upgrade guides on the old docs site:
-[1.8.15](http://docs.jquery.com/UI/Upgrade_Guide/1.8.15),
-[1.8.11](http://docs.jquery.com/UI/Upgrade_Guide/1.8.11),
 [1.8.9](http://docs.jquery.com/UI/Upgrade_Guide/1.8.9),
 [1.8.8](http://docs.jquery.com/UI/Upgrade_Guide/1.8.8),
 [1.8.7](http://docs.jquery.com/UI/Upgrade_Guide/1.8.7),
