@@ -1,33 +1,33 @@
 {
-	"name": "jqueryui.com",
-	"title": "jQuery UI",
-	"version": "1.10.0-10",
-	"homepage": "https://github.com/jquery/jqueryui.com",
-	"author": {
-		"name": "jQuery Foundation (http://jquery.org/)"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git://github.com/jquery/jqueryui.com.git"
-	},
-	"bugs": {
-		"url": "https://github.com/jquery/jqueryui.com/issues"
-	},
-	"licenses": [
-	{
-		"type": "MIT",
-		"url": "http://www.opensource.org/licenses/MIT"
-	}
-	],
-	"dependencies": {
-		"grunt": "0.3.17",
-		"grunt-clean": "0.3.0",
-		"grunt-html": "0.1.1",
-		"grunt-wordpress": "1.0.5",
-		"grunt-jquery-content": "0.8.1",
-		"grunt-check-modules": "0.1.0",
-		"download.jqueryui.com": "1.10.1",
-		"jsdom": "0.2.x"
-	},
-	"keywords" : []
+  "name": "jqueryui.com",
+  "title": "jQuery UI",
+  "version": "1.10.1",
+  "homepage": "https://github.com/jquery/jqueryui.com",
+  "author": {
+    "name": "jQuery Foundation (http://jquery.org/)"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jquery/jqueryui.com.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jquery/jqueryui.com/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/MIT"
+    }
+  ],
+  "dependencies": {
+    "grunt": "0.3.17",
+    "grunt-clean": "0.3.0",
+    "grunt-html": "0.1.1",
+    "grunt-wordpress": "1.0.5",
+    "grunt-jquery-content": "0.8.1",
+    "grunt-check-modules": "0.1.0",
+    "download.jqueryui.com": "1.10.1",
+    "jsdom": "0.2.x"
+  },
+  "keywords": []
 }
