@@ -42,7 +42,8 @@ grunt.initConfig({
 grunt.registerTask( "build-download", function() {
 	function writeFiles() {
 		var downloadBuilder = require( "download.jqueryui.com" )({
-				host: "http://download.jqueryui.com"
+				host: "http://download.jqueryui.com",
+				env: "production"
 			}),
 			frontend = downloadBuilder.frontend,
 			resources = grunt.file.expandFiles( dir + "/app/**" ),
@@ -235,7 +236,7 @@ grunt.registerTask( "create-quickdownload", function() {
 
 	grunt.utils.spawn({
 		cmd: "grunt",
-		args: [ "build:" + path.resolve( "resources/download" ) ],
+		args: [ "build-packages:" + path.resolve( "resources/download" ) ],
 		opts: {
 			cwd: "node_modules/download.jqueryui.com"
 		}
