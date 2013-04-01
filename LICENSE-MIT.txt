@@ -1,4 +1,4 @@
-Copyright (c) 2012 jQuery Foundation, http://jquery.org/
+Copyright (c) 2013 jQuery Foundation, http://jquery.org/
 
 This software consists of voluntary contributions made by many
 individuals. For exact contribution history, see the revision history
