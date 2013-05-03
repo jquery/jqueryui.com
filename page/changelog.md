@@ -2,6 +2,9 @@
 	"title": "jQuery UI Changelogs"
 }</script>
 
+## [1.10.3 Changelog](/changelog/1.10.3/)
+Released on May 3, 2013
+
 ## [1.10.2 Changelog](/changelog/1.10.2/)
 Released on March 14, 2013
 
