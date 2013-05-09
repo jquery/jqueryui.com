@@ -105,7 +105,7 @@ grunt.registerTask( "build-demos", function() {
 		if ( b.filename === "default" ) {
 			return 1;
 		}
-		return a.title > b.title ? 1 : -1;
+		return a.title.toLowerCase() > b.title.toLowerCase() ? 1 : -1;
 	}
 
 	// We hijack the jquery-ui checkout from download.jqueryui.com
@@ -115,7 +115,7 @@ grunt.registerTask( "build-demos", function() {
 		jsdom = require( "jsdom" ).jsdom,
 		downloadModulePath = path.dirname( require.resolve( "download.jqueryui.com" ) ),
 		versions = grunt.file.readJSON( downloadModulePath + "/config.json" ),
-		repoDir = downloadModulePath + "/release/" + versions.jqueryUi.stable.version,
+		repoDir = "/Users/scottgonzalez/Projects/jquery-ui",//downloadModulePath + "/release/" + versions.jqueryUi.stable.version,
 		demosDir = repoDir + "/demos",
 		distDir = repoDir + "/dist",
 		targetDir = grunt.config( "wordpress.dir" ) + "/resources/demos",
