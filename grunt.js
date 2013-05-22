@@ -117,7 +117,6 @@ grunt.registerTask( "build-demos", function() {
 		versions = grunt.file.readJSON( downloadModulePath + "/config.json" ),
 		repoDir = downloadModulePath + "/jquery-ui/" + versions.jqueryUi.stable.version,
 		demosDir = repoDir + "/demos",
-		distDir = repoDir + "/dist",
 		targetDir = grunt.config( "wordpress.dir" ) + "/resources/demos",
 		highlightDir = targetDir + "-highlight",
 		demoList = {},
