@@ -44,3 +44,11 @@
 * Released on October 5, 2012
 * [jQuery UI 1.9.0 (source, demos, themes, tests)](/resources/download/jquery-ui-1.9.0.zip)
 * [jQuery UI 1.9.0 Themes](/resources/download/jquery-ui-themes-1.9.0.zip)
+
+## 1.9.0-rc.1
+* Released on August 24, 2012
+* [jQuery UI 1.9.0-rc.1 (source, demos, themes, tests)](/resources/download/jquery-ui-1.9.0-rc.1.zip)
+
+## 1.9.0-beta.1
+* Released on June 28, 2012
+* [jQuery UI 1.9.0-beta.1 (source, demos, themes, tests)](/resources/download/jquery-ui-1.9.0-beta.1.zip)
