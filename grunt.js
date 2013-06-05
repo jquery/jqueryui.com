@@ -41,11 +41,10 @@ grunt.initConfig({
 
 grunt.registerTask( "build-download", function() {
 	function writeFiles() {
-		var downloadBuilder = require( "download.jqueryui.com" )({
+		var frontend = require( "download.jqueryui.com" ).frontend({
 				host: "http://download.jqueryui.com",
 				env: "production"
 			}),
-			frontend = downloadBuilder.frontend,
 			resources = grunt.file.expandFiles( dir + "/app/**" ),
 			download = frontend.download,
 			themeroller = frontend.themeroller;
