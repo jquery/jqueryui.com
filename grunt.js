@@ -171,7 +171,9 @@ grunt.registerTask( "build-demos", function() {
 		} else {
 			grunt.file.copy( abspath, dest );
 		}
-	});
+	// TODO: Remove subdir parameter when upgrading to grunt 0.4.1+
+	// https://github.com/gruntjs/grunt/pull/722
+	}, "" );
 
 	for ( subdir in demoList ) {
 		demoList[ subdir ].sort( sortByTitle );
