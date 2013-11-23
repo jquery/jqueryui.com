@@ -204,3 +204,27 @@
 * Release on March 18, 2010
 * [jQuery UI 1.8 (source, theme, demos, tests)](/resources/download/jquery-ui-1.8.zip)
 * [jQuery UI 1.8 Themes](/resources/download/jquery-ui-themes-1.8.zip)
+
+## 1.8rc3
+* Release on February 25, 2010
+* [jQuery UI 1.8rc3 (source, theme, demos, tests)](/resources/download/jquery-ui-1.8rc3.zip)
+
+## 1.8rc2
+* Release on February 16, 2010
+* [jQuery UI 1.8rc2 (source, theme, demos, tests)](/resources/download/jquery-ui-1.8rc2.zip)
+
+## 1.8rc1
+* Release on January 27, 2010
+* [jQuery UI 1.8rc1 (source, theme, demos, tests)](/resources/download/jquery-ui-1.8rc1.zip)
+
+## 1.8b1
+* Release on January 20, 2010
+* [jQuery UI 1.8b1 (source, theme, demos, tests)](/resources/download/jquery-ui-1.8b1.zip)
+
+## 1.8a2
+* Release on December 29, 2009
+* [jQuery UI 1.8a2 (source, theme, demos, tests)](/resources/download/jquery-ui-1.8a2.zip)
+
+## 1.8a1
+* Release on August 12, 2009
+* [jQuery UI 1.8a1 (source, theme, demos, tests)](/resources/download/jquery-ui-1.8a1.zip)
