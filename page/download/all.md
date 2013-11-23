@@ -243,3 +243,43 @@
 * Release on March 3, 2009
 * [jQuery UI 1.7 (source, theme, demos, tests)](/resources/download/jquery-ui-1.7.zip)
 * [jQuery UI 1.7 Themes](/resources/download/jquery-ui-themes-1.7.zip)
+
+## 1.6
+* Release on April 16, 2009
+* [jQuery UI 1.6 (source, theme, demos, tests)](/resources/download/jquery-ui-1.6.zip)
+
+## 1.6rc6
+* Release on January 29, 2009
+* [jQuery UI 1.6rc6 (source, theme, demos, tests)](/resources/download/jquery-ui-1.6rc6.zip)
+
+## 1.6rc5
+* Release on January 15, 2009
+* [jQuery UI 1.6rc5 (source, theme, demos, tests)](/resources/download/jquery-ui-1.6rc5.zip)
+
+## 1.6rc4
+* Release on January 1, 2009
+* [jQuery UI 1.6rc4 (source, theme, demos, tests)](/resources/download/jquery-ui-1.6rc4.zip)
+
+## 1.6rc3
+* Release on December 31, 2008
+* [jQuery UI 1.6rc3 (source, theme, demos, tests)](/resources/download/jquery-ui-1.6rc3.zip)
+
+## 1.6rc2.6
+* Release on March 26, 2009
+* [jQuery UI 1.6rc2.6 (source, theme, demos, tests)](/resources/download/jquery-ui-1.6rc2.6.zip)
+
+## 1.6rc2.5
+* Release on March 11, 2009
+* [jQuery UI 1.6rc2.5 (source, theme, demos, tests)](/resources/download/jquery-ui-1.6rc2.5.zip)
+
+## 1.6rc2
+* Release on September 19, 2008
+* [jQuery UI 1.6rc2 (source, theme, demos, tests)](/resources/download/jquery-ui-1.6rc2.zip)
+
+## 1.6rc1
+* Release on September 12, 2008
+* [jQuery UI 1.6rc1 (source, theme, demos, tests)](/resources/download/jquery-ui-1.6rc1.zip)
+
+## 1.6b
+* Release on August 14, 2008
+* [jQuery UI 1.6b (source, theme, demos, tests)](/resources/download/jquery-ui-1.6b.zip)
