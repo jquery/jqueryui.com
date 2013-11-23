@@ -323,3 +323,7 @@
 ## 1.5a
 * Release on February 6, 2008
 * [jQuery UI 1.5a (source, theme, demos, tests)](/resources/download/jquery-ui-1.5a.zip)
+
+## 1.0
+* Release on September 16, 2007
+* [jQuery UI 1.0 (source, theme, demos, tests)](/resources/download/jquery-ui-1.0.zip)
