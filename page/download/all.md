@@ -299,3 +299,27 @@
 ## 1.5
 * Release on June 8, 2008
 * [jQuery UI 1.5 (source, theme, demos, tests)](/resources/download/jquery-ui-1.5.zip)
+
+## 1.5rc1
+* Release on June 1, 2008
+* [jQuery UI 1.5rc1 (source, theme, demos, tests)](/resources/download/jquery-ui-1.5rc1.zip)
+
+## 1.5b4
+* Release on May 5, 2008
+* [jQuery UI 1.5b4 (source, theme, demos, tests)](/resources/download/jquery-ui-1.5b4.zip)
+
+## 1.5b3
+* Release on May 5, 2008
+* [jQuery UI 1.5b3 (source, theme, demos, tests)](/resources/download/jquery-ui-1.5b3.zip)
+
+## 1.5b2
+* Release on April 9, 2008
+* [jQuery UI 1.5b2 (source, theme, demos, tests)](/resources/download/jquery-ui-1.5b2.zip)
+
+## 1.5b
+* Release on February 12, 2008
+* [jQuery UI 1.5b (source, theme, demos, tests)](/resources/download/jquery-ui-1.5b.zip)
+
+## 1.5a
+* Release on February 6, 2008
+* [jQuery UI 1.5a (source, theme, demos, tests)](/resources/download/jquery-ui-1.5a.zip)
