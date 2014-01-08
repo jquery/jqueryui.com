@@ -12,7 +12,7 @@ jQuery UI 1.10.x supports the following browsers:
 * Opera: (Current - 1) or Current
 * IE 7+
 
-Any problem with jQuery UI in the above browsers should be considered and reported as a bug in jQuery UI.
+Any problem with jQuery UI in the above browsers should be reported as a bug in jQuery UI.
 
 *(Current - 1) or Current* denotes that we support the current stable version of the browser and the version that preceded it. For example, if the current version of a browser is 24.x, we support the 24.x and 23.x versions.
 
