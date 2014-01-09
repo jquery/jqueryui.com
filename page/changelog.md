@@ -1,5 +1,6 @@
 <script>{
-	"title": "jQuery UI Changelogs"
+	"title": "jQuery UI Changelogs",
+	"noHeadingLinks": true
 }</script>
 
 ## [1.10.3 Changelog](/changelog/1.10.3/)

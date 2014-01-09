@@ -1,5 +1,6 @@
 <script>{
-	"title": "jQuery UI Upgrade Guides"
+	"title": "jQuery UI Upgrade Guides",
+	"noHeadingLinks": true
 }</script>
 
 ## [1.10 Upgrade Guide](/upgrade-guide/1.10/)
