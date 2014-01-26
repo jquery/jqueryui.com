@@ -180,14 +180,14 @@ grunt.registerTask( "build-demos", function() {
 		// ../../jquery-x.y.z.js -> CDN
 		source = source.replace(
 			/<script src="\.\.\/\.\.\/jquery-\d+\.\d+(\.\d+)?\.js">/,
-			"<script src=\"http://code.jquery.com/jquery-" + versions.jquery + ".js\">" );
+			"<script src=\"//code.jquery.com/jquery-" + versions.jquery + ".js\">" );
 
 		// ../../ui/* -> CDN
 		// Only the first script is replaced, all subsequent scripts are dropped,
 		// including the full line
 		source = source.replace(
 			/<script src="\.\.\/\.\.\/ui\/[^>]+>/,
-			"<script src=\"http://code.jquery.com/ui/" + versions.jqueryUi.stable.version + "/jquery-ui.js\">" );
+			"<script src=\"//code.jquery.com/ui/" + versions.jqueryUi.stable.version + "/jquery-ui.js\">" );
 		source = source.replace(
 			/^.*<script src="\.\.\/\.\.\/ui\/[^>]+><\/script>\n/gm,
 			"" );
@@ -200,7 +200,7 @@ grunt.registerTask( "build-demos", function() {
 		// ../../ui/themes/* -> CDN
 		source = source.replace(
 			/<link rel="stylesheet" href="\.\.\/\.\.\/themes[^>]+>/,
-			"<link rel=\"stylesheet\" href=\"http://code.jquery.com/ui/" + versions.jqueryUi.stable.version + "/themes/smoothness/jquery-ui.css\">" );
+			"<link rel=\"stylesheet\" href=\"//code.jquery.com/ui/" + versions.jqueryUi.stable.version + "/themes/smoothness/jquery-ui.css\">" );
 
 		// ../demos.css -> /resources/demos/style.css
 		source = source.replace(
