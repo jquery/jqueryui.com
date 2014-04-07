@@ -110,16 +110,18 @@ grunt.registerTask( "build-demos", function() {
 	// We hijack the jquery-ui checkout from download.jqueryui.com
 	this.requires( "build-download" );
 
-	var path = require( "path" ),
+	var jqueryCore, subdir,
+		path = require( "path" ),
 		cheerio = require( "cheerio" ),
-		downloadModulePath = path.dirname( require.resolve( "download.jqueryui.com" ) ),
-		versions = grunt.file.readJSON( downloadModulePath + "/config.json" ),
-		repoDir = downloadModulePath + "/jquery-ui/" + versions.jqueryUi.stable.version,
+		downloadBuilder = require( "download.jqueryui.com" ),
+		stable = downloadBuilder.JqueryUi.getStable(),
+		repoDir = stable.path,
 		demosDir = repoDir + "/demos",
 		targetDir = grunt.config( "wordpress.dir" ) + "/resources/demos",
 		highlightDir = targetDir + "-highlight",
-		demoList = {},
-		subdir;
+		demoList = {};
+
+	jqueryCore = stable.files().jqueryCore[ 0 ].data.match( /jQuery JavaScript Library v([0-9.]*)/ )[ 1 ];
 
 	// Copy all demos files to /resources/demos
 	grunt.file.recurse( demosDir, function( abspath, rootdir, subdir, filename ) {
@@ -180,14 +182,14 @@ grunt.registerTask( "build-demos", function() {
 		// ../../jquery-x.y.z.js -> CDN
 		source = source.replace(
 			/<script src="\.\.\/\.\.\/jquery-\d+\.\d+(\.\d+)?\.js">/,
-			"<script src=\"//code.jquery.com/jquery-" + versions.jquery + ".js\">" );
+			"<script src=\"//code.jquery.com/jquery-" + jqueryCore + ".js\">" );
 
 		// ../../ui/* -> CDN
 		// Only the first script is replaced, all subsequent scripts are dropped,
 		// including the full line
 		source = source.replace(
 			/<script src="\.\.\/\.\.\/ui\/[^>]+>/,
-			"<script src=\"//code.jquery.com/ui/" + versions.jqueryUi.stable.version + "/jquery-ui.js\">" );
+			"<script src=\"//code.jquery.com/ui/" + stable.pkg.version + "/jquery-ui.js\">" );
 		source = source.replace(
 			/^.*<script src="\.\.\/\.\.\/ui\/[^>]+><\/script>\n/gm,
 			"" );
@@ -200,7 +202,7 @@ grunt.registerTask( "build-demos", function() {
 		// ../../ui/themes/* -> CDN
 		source = source.replace(
 			/<link rel="stylesheet" href="\.\.\/\.\.\/themes[^>]+>/,
-			"<link rel=\"stylesheet\" href=\"//code.jquery.com/ui/" + versions.jqueryUi.stable.version + "/themes/smoothness/jquery-ui.css\">" );
+			"<link rel=\"stylesheet\" href=\"//code.jquery.com/ui/" + stable.pkg.version + "/themes/smoothness/jquery-ui.css\">" );
 
 		// ../demos.css -> /resources/demos/style.css
 		source = source.replace(
