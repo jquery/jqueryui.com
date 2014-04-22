@@ -4,7 +4,7 @@
 }</script>
 
 ## [1.10.4 Changelog](/changelog/1.10.4/)
-Released on January 17th, 2014
+Released on January 17, 2014
 
 ## [1.10.3 Changelog](/changelog/1.10.3/)
 Released on May 3, 2013
