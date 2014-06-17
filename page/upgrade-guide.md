@@ -3,6 +3,8 @@
 	"noHeadingLinks": true
 }</script>
 
+## [1.11 Upgrade Guide](/upgrade-guide/1.11/)
+
 ## [1.10 Upgrade Guide](/upgrade-guide/1.10/)
 Released on January 17, 2013
 
