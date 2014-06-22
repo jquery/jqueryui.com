@@ -45,7 +45,7 @@ grunt.registerTask( "build-download", function() {
 				host: "http://download.jqueryui.com",
 				env: "production"
 			}),
-			resources = grunt.file.expandFiles( dir + "/app/**" ),
+			resources = grunt.file.expandFiles( dir + "/app/dist/**" ),
 			download = frontend.download,
 			themeroller = frontend.themeroller;
 
@@ -62,7 +62,7 @@ grunt.registerTask( "build-download", function() {
 			}) + "</script>\n" + themeroller.index() );
 
 		resources.forEach(function( file ) {
-			grunt.file.copy( file, file.replace( dir + "/app", grunt.config( "wordpress.dir" ) ) );
+			grunt.file.copy( file, file.replace( dir + "/app/dist", grunt.config( "wordpress.dir" ) + "/resources" ) );
 		});
 
 		grunt.log.write( "Wrote download.html, themeroller.html and " + resources.length + " resources." );
