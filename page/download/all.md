@@ -4,7 +4,7 @@
 
 ## 1.11.0
 * Released on June 26, 2014
-* [jQuery UI 1.11.0 (source, theme, demos, tests)](/resources/download/jquery-ui-1.11.0.zip)
+* [jQuery UI 1.11.0](/resources/download/jquery-ui-1.11.0.zip)
 
 ## 1.11.0-beta.2
 * Released on May 23, 2014
