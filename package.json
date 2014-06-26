@@ -26,7 +26,7 @@
     "grunt-wordpress": "1.0.7",
     "grunt-jquery-content": "0.11.1",
     "grunt-check-modules": "0.1.0",
-    "download.jqueryui.com": "2.0.9",
+    "download.jqueryui.com": "2.0.11",
     "cheerio": "0.12.4"
   },
   "keywords": []
