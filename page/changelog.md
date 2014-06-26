@@ -3,6 +3,9 @@
 	"noHeadingLinks": true
 }</script>
 
+## [1.11.0 Changelog](/changelog/1.11.0/)
+Released on June 26, 2014
+
 ## [1.11.0-beta.2 Changelog](/changelog/1.11.0-beta.2/)
 Released on May 23, 2014
 
