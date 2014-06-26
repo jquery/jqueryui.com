@@ -181,7 +181,7 @@ grunt.registerTask( "build-demos", function() {
 	function replaceResources( source ) {
 		// ../../jquery-x.y.z.js -> CDN
 		source = source.replace(
-			/<script src="\.\.\/\.\.\/jquery-\d+\.\d+(\.\d+)?\.js">/,
+			/<script src="\.\.\/\.\.\/external\/jquery\/jquery\.js">/,
 			"<script src=\"//code.jquery.com/jquery-" + jqueryCore + ".js\">" );
 
 		// ../../ui/* -> CDN
