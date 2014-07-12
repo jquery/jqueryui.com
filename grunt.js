@@ -115,8 +115,9 @@ grunt.registerTask( "build-demos", function() {
 		cheerio = require( "cheerio" ),
 		downloadBuilder = require( "download.jqueryui.com" ),
 		stable = downloadBuilder.JqueryUi.getStable(),
-		repoDir = stable.path,
-		demosDir = repoDir + "/demos",
+		repoDir = path.normalize( stable.path ),
+		demosDir = repoDir + "demos",
+		externalDir = (repoDir + "external").replace( process.cwd() + "/", "" ),
 		targetDir = grunt.config( "wordpress.dir" ) + "/resources/demos",
 		highlightDir = targetDir + "-highlight",
 		demoList = {};
@@ -174,8 +175,8 @@ grunt.registerTask( "build-demos", function() {
 	grunt.file.write( targetDir + "/demo-list.json", JSON.stringify( demoList, null, "\t" ) );
 
 	// Copy externals into /resources/demos/external
-	grunt.file.expandFiles( repoDir + "/external/**" ).forEach(function( filename ) {
-		grunt.file.copy( filename, targetDir + "/external/" + path.basename( filename ) );
+	grunt.file.expandFiles( externalDir + "/**" ).forEach(function( filename ) {
+		grunt.file.copy( filename, targetDir + "/external/" + filename.replace( externalDir, "" ) );
 	});
 
 	function replaceResources( source ) {
