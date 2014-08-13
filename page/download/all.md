@@ -2,6 +2,11 @@
 	"title": "All jQuery UI Downloads"
 }</script>
 
+## 1.11.1
+* Released on August 13, 2014
+* [jQuery UI 1.11.1 (concatenated JS and CSS files)](/resources/download/jquery-ui-1.11.1.zip)
+* [jQuery UI 1.11.1 Themes](/resources/download/jquery-ui-themes-1.11.1.zip)
+
 ## 1.11.0
 * Released on June 26, 2014
 * [jQuery UI 1.11.0 (concatenated JS and CSS files)](/resources/download/jquery-ui-1.11.0.zip)
