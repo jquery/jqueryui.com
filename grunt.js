@@ -1,27 +1,12 @@
 var rimraf = require( "rimraf" );
 
 module.exports = function( grunt ) {
-"use strict";
-grunt.loadNpmTasks( "grunt-wordpress" );
-grunt.loadNpmTasks( "grunt-jquery-content" );
+
 grunt.loadNpmTasks( "grunt-check-modules" );
+grunt.loadNpmTasks( "grunt-jquery-content" );
+grunt.loadNpmTasks( "grunt-wordpress" );
 
 grunt.initConfig({
-	jshint: {
-		options: {
-			undef: true,
-			node: true
-		}
-	},
-	lint: {
-		grunt: "grunt.js"
-	},
-	watch: {
-		pages: {
-			files: "page/**.html",
-			tasks: "deploy"
-		}
-	},
 	"build-pages": {
 		all: grunt.file.expandFiles( "page/**" )
 	},
@@ -63,7 +48,7 @@ grunt.registerTask( "build-download", function() {
 			grunt.file.copy( file, file.replace( dir + "/app/dist", grunt.config( "wordpress.dir" ) + "/resources" ) );
 		});
 
-		grunt.log.write( "Wrote download.html, themeroller.html and " + resources.length + " resources." );
+		grunt.log.writeln( "Wrote download.html, themeroller.html and " + resources.length + " resources." );
 	}
 	var path = require( "path" ),
 		dir = path.dirname( require.resolve( "download.jqueryui.com" ) ),
@@ -241,8 +226,7 @@ grunt.registerTask( "create-quickdownload", function() {
 	});
 });
 
-grunt.registerTask( "default", "lint" );
 grunt.registerTask( "build", "build-pages build-resources build-download build-demos copy-taxonomies" );
-grunt.registerTask( "build-wordpress", "check-modules clean lint build" );
+grunt.registerTask( "build-wordpress", "check-modules clean build" );
 
 };
