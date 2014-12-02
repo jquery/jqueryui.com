@@ -21,12 +21,12 @@
   ],
   "dependencies": {
     "grunt": "0.3.17",
-    "grunt-clean": "0.3.0",
     "grunt-wordpress": "1.2.1",
     "grunt-jquery-content": "0.13.0",
     "grunt-check-modules": "0.1.0",
     "download.jqueryui.com": "2.0.17",
-    "cheerio": "0.12.4"
+    "cheerio": "0.12.4",
+    "rimraf": "2.2.8"
   },
   "keywords": []
 }
