@@ -1,5 +1,4 @@
-jqueryui.com
-============
+# jqueryui.com
 
 ## Building and Deploying
 
