@@ -72,7 +72,7 @@ grunt.registerTask( "build-download", function() {
 	grunt.log.writeln( "Initializing download module, might take a while..." );
 	exec( "grunt prepare", {
 		cwd: "node_modules/download.jqueryui.com"
-	}, function( error, stdout, strerr ) {
+	}, function( error, stdout, stderr ) {
 		if ( error ) {
 			grunt.log.error( stderr );
 			return done( error );
