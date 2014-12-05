@@ -1,21 +1,25 @@
-var rimraf = require( "rimraf" );
+var exec = require( "child_process" ).exec,
+	fs = require( "fs" ),
+	rimraf = require( "rimraf" ),
+	jqueryContent = require( "grunt-jquery-content" );
 
 module.exports = function( grunt ) {
 
 grunt.loadNpmTasks( "grunt-check-modules" );
 grunt.loadNpmTasks( "grunt-jquery-content" );
-grunt.loadNpmTasks( "grunt-wordpress" );
 
 grunt.initConfig({
 	"build-pages": {
-		all: grunt.file.expandFiles( "page/**" )
+		all: "page/**"
 	},
 	"build-resources": {
-		all: grunt.file.expandFiles( "resources/**" )
+		all: "resources/**"
 	},
-	wordpress: grunt.utils._.extend({
-		dir: "dist/wordpress"
-	}, grunt.file.readJSON( "config.json" ) )
+	wordpress: (function() {
+		var config = require( "./config" );
+		config.dir = "dist/wordpress";
+		return config;
+	})()
 });
 
 grunt.registerTask( "clean", function() {
@@ -28,52 +32,52 @@ grunt.registerTask( "build-download", function() {
 				host: "http://download.jqueryui.com",
 				env: "production"
 			}),
-			resources = grunt.file.expandFiles( dir + "/app/dist/**" ),
 			download = frontend.download,
-			themeroller = frontend.themeroller;
+			themeroller = frontend.themeroller,
+			wordpressDir = grunt.config( "wordpress.dir" ),
+			resourceCount = 0;
 
-		grunt.file.write( grunt.config( "wordpress.dir" ) + "/posts/page/download.html",
+		grunt.file.write( wordpressDir + "/posts/page/download.html",
 			"<script>" + JSON.stringify({
 				title: "Download Builder",
 				pageTemplate: "page-fullwidth.php"
 			}) + "</script>\n" + download.index() );
 
-		grunt.file.write( grunt.config( "wordpress.dir" ) + "/posts/page/themeroller.html",
+		grunt.file.write( wordpressDir + "/posts/page/themeroller.html",
 			"<script>" + JSON.stringify({
 				title: "ThemeRoller",
 				pageTemplate: "page-fullwidth.php"
 			}) + "</script>\n" + themeroller.index() );
 
-		resources.forEach(function( file ) {
-			grunt.file.copy( file, file.replace( dir + "/app/dist", grunt.config( "wordpress.dir" ) + "/resources" ) );
+		grunt.file.expand( { filter: "isFile" }, dir + "/app/dist/**" ).forEach(function( file ) {
+			grunt.file.copy( file,
+				file.replace( dir + "/app/dist", wordpressDir + "/resources" ) );
+			resourceCount++;
 		});
 
-		grunt.log.writeln( "Wrote download.html, themeroller.html and " + resources.length + " resources." );
+		grunt.log.writeln( "Wrote download.html, themeroller.html and " +
+			resourceCount + " resources." );
 	}
+
 	var path = require( "path" ),
 		dir = path.dirname( require.resolve( "download.jqueryui.com" ) ),
 		done = this.async();
 
 	if ( grunt.option( "noprepare" ) ) {
 		writeFiles();
-		done();
-		return;
+		return done();
 	}
 
-	// at this point, the download builder repo is available, so let's initialize it
+	// At this point, the download builder repo is available, so let's initialize it
 	grunt.log.writeln( "Initializing download module, might take a while..." );
-	grunt.utils.spawn({
-		cmd: "grunt",
-		args: [ "prepare" ],
-		opts: {
-			cwd: "node_modules/download.jqueryui.com"
-		}
-	}, function( error, result, stringResult ) {
+	exec( "grunt prepare", {
+		cwd: "node_modules/download.jqueryui.com"
+	}, function( error, stdout, strerr ) {
 		if ( error ) {
-			grunt.log.error( error, stringResult );
-			done( false );
-			return;
+			grunt.log.error( stderr );
+			return done( error );
 		}
+
 		writeFiles();
 		done();
 	});
@@ -138,17 +142,14 @@ grunt.registerTask( "build-demos", function() {
 				// Create syntax highlighted version
 				$ = cheerio.load( "<pre><code data-linenum='true'></code></pre>" );
 				$( "code" ).text( content );
-				grunt.file.write( highlightDest,
-					grunt.helper( "syntax-highlight", { content: $.html() } ) );
+				grunt.file.write( highlightDest, jqueryContent.syntaxHighlight( $.html() ) );
 			} else {
 				grunt.file.write( dest, content );
 			}
 		} else {
 			grunt.file.copy( abspath, dest );
 		}
-	// TODO: Remove subdir parameter when upgrading to grunt 0.4.1+
-	// https://github.com/gruntjs/grunt/pull/722
-	}, "" );
+	});
 
 	for ( subdir in demoList ) {
 		demoList[ subdir ].sort( sortByTitle );
@@ -158,7 +159,7 @@ grunt.registerTask( "build-demos", function() {
 	grunt.file.write( targetDir + "/demo-list.json", JSON.stringify( demoList, null, "\t" ) );
 
 	// Copy externals into /resources/demos/external
-	grunt.file.expandFiles( externalDir + "/**" ).forEach(function( filename ) {
+	grunt.file.expand( { filter: "isFile" }, externalDir + "/**" ).forEach(function( filename ) {
 		grunt.file.copy( filename, targetDir + "/external/" + filename.replace( externalDir, "" ) );
 	});
 
@@ -203,30 +204,34 @@ grunt.registerTask( "copy-taxonomies", function() {
 });
 
 grunt.registerTask( "create-quickdownload", function() {
+
 	// We hijack the jquery-ui checkout from download.jqueryui.com
 	this.requires( "build-download" );
 
 	var done = this.async(),
 		path = require( "path" );
 
-	grunt.utils.spawn({
-		cmd: "grunt",
-		args: [ "build-packages:" + path.resolve( "resources/download" ) ],
-		opts: {
-			cwd: "node_modules/download.jqueryui.com"
-		}
-	}, function( error, result, stringResult ) {
+	exec( "grunt build-packages:" + path.resolve( "resources/download" ), {
+		cwd: "node_modules/download.jqueryui.com"
+	}, function( error, stdout, stderr ) {
 		if ( error ) {
-			grunt.log.error( error, stringResult );
-			done( false );
-			return;
+			grunt.log.error( stderr );
+			return done( error );
 		}
-		grunt.log.write( result.stdout );
+
+		grunt.log.write( stdout );
 		done();
 	});
 });
 
-grunt.registerTask( "build", "build-pages build-resources build-download build-demos copy-taxonomies" );
-grunt.registerTask( "build-wordpress", "check-modules clean build" );
+grunt.registerTask( "build", [
+	"build-pages",
+	"build-resources",
+	"build-download",
+	"build-demos",
+	"copy-taxonomies"
+]);
+
+grunt.registerTask( "build-wordpress", [ "check-modules", "clean", "build" ] );
 
 };
