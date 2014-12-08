@@ -1,16 +1,14 @@
 var exec = require( "child_process" ).exec,
 	fs = require( "fs" ),
-	rimraf = require( "rimraf" ),
 	jqueryContent = require( "grunt-jquery-content" );
 
 module.exports = function( grunt ) {
 
-grunt.loadNpmTasks( "grunt-check-modules" );
 grunt.loadNpmTasks( "grunt-jquery-content" );
 
 grunt.initConfig({
-	"build-pages": {
-		all: "page/**"
+	"build-posts": {
+		page: "page/**"
 	},
 	"build-resources": {
 		all: "resources/**"
@@ -20,10 +18,6 @@ grunt.initConfig({
 		config.dir = "dist/wordpress";
 		return config;
 	})()
-});
-
-grunt.registerTask( "clean", function() {
-	rimraf.sync( "dist" );
 });
 
 grunt.registerTask( "build-download", function() {
@@ -225,13 +219,11 @@ grunt.registerTask( "create-quickdownload", function() {
 });
 
 grunt.registerTask( "build", [
-	"build-pages",
+	"build-posts",
 	"build-resources",
 	"build-download",
 	"build-demos",
 	"copy-taxonomies"
 ]);
-
-grunt.registerTask( "build-wordpress", [ "check-modules", "clean", "build" ] );
 
 };
