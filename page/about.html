@@ -4,9 +4,39 @@
 
 <p>jQuery UI is a curated set of user interface interactions, effects, widgets, and themes built on top of the jQuery JavaScript Library. Whether you're building highly interactive web applications or you just need to add a date picker to a form control, jQuery UI is the perfect choice.</p>
 
-<p>There's a lot of work that goes into making jQuery UI the most successful UI library for the Web. Between API design, visual design, implementation, ticket triage, bug fixing, developer relations, infrastructure, and everything else, most of the work is done by volunteers. We'd like to recognize the most prominent contributors below, for a full list of all contributors, see the <a href="https://github.com/jquery/jquery-ui/blob/master/AUTHORS.txt">authors list</a>.</p>
+<h2>Vision and Goals</h2>
+
+<h3>Collaborative design process</h3>
+
+The process for designing and planning the future of the jQuery UI library should be open, transparent and in the hands of the community. We welcome input from anyone interested in engaging with the team, from hard-core developers to visual and interaction designers, accessiblity experts, product managers, business people, end users and more.
+
+<h3>Flexible styling and themes</h3>
+
+Widgets should provide hooks to enable developers to customize both behavioral and presentational aspects. Transition animations should be optional and customizable. Class names used on internal elements should be meaningful to jQuery UI users and enable styling either through <a href="http://jqueryui.com/themeroller/">ThemeRoller</a> or hand-written CSS via the <a href="http://learn.jquery.com/jquery-ui/theming/">jQuery UI CSS Framework</a>. As much as possible, style attributes should be separated into the plugin's CSS, not within the scripts in order to make customization simple and clear. Widgets styles should be coded with proportional (em-based or % based) sizing and should re-flow horizontally to fill the space provided.
+
+<h3>Elegant visual and interaction design</h3>
+
+All widgets should be designed for simplicity, ease of use and aesthetics. We aim to synthesize best practice examples from mobile and desktop OS, web applications and a bit of common sense to create a robust and flexible set of UI widgets that is visually coherent and consistent in behavior. Features should be pared down to focus on what is practical and commonly needed with a system for extending features through customization.
+
+<h3>Elegant API</h3>
+
+The jQuery UI API is designed to be as simple and intuitive as the jQuery API. You find elements using a query selector, then call a succinct method on the resultant set. There are suitable defaults to cover the most common use cases, so quite often it's not necessary to specify any non-default options. All options are optional.
+
+<h3>Progressive enhancement</h3>
+
+Since we're developing non-native HTML controls, widgets should be built in such a way that users on browsers and devices that are unable to support JavaScript can still interact with the website or application. Most of the current set of UI widgets follow the best practice of progressive enhancement and we're working to extend that pattern to widgets that don't. In most cases, advanced components can be generated from HTML primitives (i.e. slider from select menu, radio set, or text input), and as the UI library paired with the most popular JavaScript library in the world, we should lead by example in this area. Any UI widget that sits within the flow of a form should be able to store data using semantic HTML elements so the form can be submitted or serialized normally. jQuery UI components should follow the unobtrusive practices put forth by jQuery itself, and should attempt to be forward-looking in its attempts to normalize across browsers and devices (test for features/bugs, not browser sniffing).
+
+<h3>Deep accessibility support</h3>
+
+Widgets should also be accessible to JavaScript-capable users who have disabilities such as blindness or deafness (should we ever venture into the arena of audio/video integration, for instance). We attempt to make components accessible through the use of semantic HTML elements within components and following the guidelines specified in the WAI-ARIA spec. Any image-based actions within widgets should provide text equivalents (close icons, expand/collapse icons, etc. should have title attributes at the least).
+
+<h3>Internationalization and localization</h3>
+
+Given the global audience for jQuery UI, we should embrace the ability to make our plugins work in a variety of languages and cultures.  By abstracting language away from the core plugin code and providing options for supporting cultural differences (right to left reading orientation, date and currency formats, iconography, etc.) we can build in the flexibility needed for a global community.
 
 <h2>jQuery UI Team</h2>
+
+<p>There's a lot of work that goes into making jQuery UI the most successful UI library for the Web. Between API design, visual design, implementation, ticket triage, bug fixing, developer relations, infrastructure, and everything else, most of the work is done by volunteers. We'd like to recognize the most prominent contributors below, for a full list of all contributors, see the <a href="https://github.com/jquery/jquery-ui/blob/master/AUTHORS.txt">authors list</a>.</p>
 
 <h3><a href="http://nemikor.com/">Scott González</a> &mdash; Project Lead</h3>
 <p>Scott González is a web developer living in York, PA. As project lead, he puts a lot of effort into keeping jQuery UI efficient, consistent, and accessible, as well as adjusting the roadmap to meet the ever-changing needs of the community. Scott also works with browser vendors and standards bodies to make the Web a better place for everyone, not just jQuery users.</p>
@@ -14,23 +44,17 @@
 <h3><a href="http://bassistance.de/">Jörn Zaefferer</a> &mdash; Development Lead</h3>
 <p>Jörn is a freelance web developer, consultant and trainer, residing in Cologne, Germany. Jörn evolved jQuery’s testsuite into QUnit, a JavaScript unit testing framework, and maintains it. He created and maintains a number of popular plugins. As a jQuery UI development lead, he focuses on the development of new plugins, widgets and utilities.</p>
 
-<h3><a href="http://krisborchers.com/">Kris Borchers</a></h3>
-<p>Kris is a Senior Software Engineer on the <a href="http://aerogear.org" target="_blank">AeroGear</a> team at <a href="http://redhat.com" target="_blank">Red Hat</a>. He has contributed a number of bug fixes to the jQuery UI project and most recently did a lot of work to finalize the <a href="http://wiki.jqueryui.com/w/page/12137997/Menu">Menu</a> widget.</p>
-
 <h3><a href="http://www.felixnagel.com/">Felix Nagel</a></h3>
-<p>Felix is a <a href="http://www.felixnagel.com/portfolio/">freelance web developer</a> specializing in TYPO3 CMS and Symfony2 development. He is currently living in Dresden, Germany. Felix has built the <a href="http://wiki.jqueryui.com/w/page/12138056/Selectmenu">Selectmenu</a> widget and is currently working on the <a href="http://wiki.jqueryui.com/w/page/12137778/Datepicker">Datepicker</a> widget.</p>
-
-<h3><a href="http://gnarf.net/">Corey Frang</a></h3>
-<p>Corey is a freelance web developer, speaker and system administrator, living in Rockford, IL. He is an active contributor to most of the jQuery teams and is active in the jQuery community on IRC, and <a href="http://stackoverflow.com/users/91914">Stack Overflow</a>. Corey has restructured the effects modules in both UI and Core, maintains the jQuery Color Animations plugin and leads the jQuery infrastructure team.</p>
+<p>Felix is a <a href="http://www.felixnagel.com/portfolio/">freelance web developer</a> specializing in TYPO3 CMS and Symfony2 development. He is currently living in Dresden, Germany. Felix has built the <a href="http://jqueryui.com/selectmenu/">Selectmenu</a> widget and is currently working on the <a href="http://jqueryui.com/datepicker/">Datepicker</a> widget.</p>
 
 <h3><a href="http://mike.sherov.com">Mike Sherov</a></h3>
 <p>Mike is a Senior Software Engineer at <a href="http://blog.behance.net/dev">Behance</a>, from Plainview, New York. Mike is involved in bug fixing, testing, and code quality efforts across the jquery suite of projects. He focuses his efforts around the CSS/JS interactions and interacts with standards bodies and browser vendors to move the web forward.</p>
 
 <h3><a href="http://rafael.xavier.blog.br/">Rafael Xavier de Souza</a></h3>
-<p>Xavier has a B.S. in Computer Science from University of Sao Paulo, Brazil. He was a Software Engineer at IBM, where he lead the brazilian team of Q&amp;A and Performance at Linux Technology Center. Now, he devotes his energies to his startup.</p>
+<p>Xavier rewrote Globalize on top of CLDR and is now its project lead. He also rewrote and maintains jQuery UI's download builder and ThemeRoller. He has a B.S. in Computer Science from University of Sao Paulo, Brazil. He was a Software Engineer at IBM, where he lead the brazilian team of Q&amp;A and Performance at Linux Technology Center.</p>
 
 <h3><a href="http://tjvantoll.com">TJ VanToll</a></h3>
-<p>TJ VanToll is a web developer, speaker, and writer living in Lansing, MI and working as a developer advocate for <a href="http://www.telerik.com/">Telerik</a>. He works on all facets of jQuery UI including triage, documentation, bug fixes, and is currently working on the <a href="http://wiki.jqueryui.com/w/page/12137778/Datepicker">rewrite of the datepicker widget</a>.</p>
+<p>TJ VanToll is a web developer, speaker, and writer living in Lansing, MI and working as a developer advocate for <a href="http://www.telerik.com/">Telerik</a>. He works on all facets of jQuery UI including triage, documentation, bug fixes, and is currently working on the rewrite of <a href="http://jqueryui.com/datepicker/">the datepicker widget</a>.</p>
 
 <h2>Contributors (Past &amp; Present)</h2>
 
@@ -60,3 +84,5 @@
 <h3><a href="http://ralphwhitbeck.com/">Ralph Whitbeck</a></h3>
 <h3><a href="http://keith-wood.name/">Keith Wood</a></h3>
 <h3><a href="http://rdworth.org/">Richard D. Worth</a></h3>
+<h3><a href="http://krisborchers.com/">Kris Borchers</a></h3>
+<h3><a href="http://gnarf.net/">Corey Frang</a></h3>
