@@ -4,6 +4,9 @@
 }</script>
 
 
+## [1.11.3 Changelog](/changelog/1.11.3/)
+Released on February 12, 2015
+
 ## [1.11.2 Changelog](/changelog/1.11.2/)
 Released on October 16, 2014
 
