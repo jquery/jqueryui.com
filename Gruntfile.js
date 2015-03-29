@@ -8,7 +8,7 @@ module.exports = function( grunt ) {
 
     grunt.initConfig({
     	"build-posts": {
-    	page: "page/**"
+        	page: "page/**"
     	},
     	"build-resources": {
     		all: "resources/**"
@@ -25,11 +25,11 @@ module.exports = function( grunt ) {
 		    var frontend = require( "download.jqueryui.com" ).frontend({
 			    	host: "http://download.jqueryui.com",
 				    env: "production"
-		    	}),
-		    	download = frontend.download,
-			    themeroller = frontend.themeroller,
-			    wordpressDir = grunt.config( "wordpress.dir" ),
-		    	resourceCount = 0;
+		    }),
+		    download = frontend.download,
+			themeroller = frontend.themeroller,
+			wordpressDir = grunt.config( "wordpress.dir" ),
+		    resourceCount = 0;
 
 		    grunt.file.write( wordpressDir + "/posts/page/download.html",
 		    	"<script>" + JSON.stringify({
