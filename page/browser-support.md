@@ -31,3 +31,25 @@ Similarly, jQuery UI does not fix bugs in pre-release versions of browsers, such
 ## jQuery Core Browser Support
 
 jQuery UI supports several versions of jQuery Core. The version of jQuery being used may further limit which browsers jQuery UI will run in. See [jQuery's browser support](http://jquery.com/browser-support/) for a list of supported browsers by version.
+
+----
+
+## Assistive Technology
+
+jQuery UI officially tries to support the most popular screen reader and browser combinations. We aim for full accessibility with the following combinations:
+
+* Current NVDA with current Firefox
+* Current VoiceOver with current Safari
+* Current JAWS with current IE
+
+Unfortunately limitations and bugs in some of these assistive technologies make it hard to support all of them at the same time. We do our best to support the widest range while advocating for improved accessibility standards. See the <a href="http://webaim.org/projects/screenreadersurvey5/#primary">screen reader survey</a> for usage statistics.
+
+### Older/Other Assistive Technology
+
+We accept patches for older/other AT if:
+
+* The code is maintainable/not super hacky.
+* The changes are relatively small.
+* The changes don't break or harm accessibility for conforming AT.
+
+We value interactions over technical implementations. Diverging from the roles and attributes in the ARIA authoring practices is acceptable if the interactions remain as expected and overall accessibility is improved.
