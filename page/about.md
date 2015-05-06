@@ -67,12 +67,12 @@ TJ VanToll is a web developer, speaker, and writer living in Lansing, MI and wor
 ### Aaron Eisenberger
 ### [Adam J. Sontag](http://www.adamjsontag.com)
 ### [Alex Dovenmuehle](https://github.com/Adovenmuehle)
-### [Ca-Phun Ung](http://yelotofu.com/)
+### [Ca-Phun Ung](http://www.yelotofu.com/)
 ### [Chi Cheng](http://chicheng.me/)
 ### [Cody Lindley](http://www.codylindley.com/)
 ### Colin Clark
 ### [Corey Frang](http://gnarf.net/)
-### [Dan Heberden](http://twitter.com/danheberden)
+### [Dan Heberden](https://twitter.com/danheberden)
 ### David Bolter
 ### [David Petersen](http://blog.petersendidit.com/)
 ### Eduardo Lundgren
