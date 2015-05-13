@@ -122,14 +122,17 @@ grunt.registerTask( "build-demos", function() {
 		}
 
 		var content, $,
-			dest = targetDir + "/" + subdir + "/" + filename,
+			destDir = targetDir + "/" + subdir + "/",
+			dest = destDir + filename,
 			highlightDest = highlightDir + "/" + subdir + "/" + filename;
 
 		if ( /html$/.test( filename ) ) {
 			content = replaceResources( grunt.file.read( abspath ) );
 
+			$ = cheerio.load( content );
+			content = deAmd( $, destDir );
+
 			if ( !( /(\/)/.test( subdir ) ) ) {
-				$ = cheerio.load( content );
 				if ( !demoList[ subdir ] ) {
 					demoList[ subdir ] = [];
 				}
@@ -148,6 +151,7 @@ grunt.registerTask( "build-demos", function() {
 				$( "code" ).text( content );
 				grunt.file.write( highlightDest, jqueryContent.syntaxHighlight( $.html() ) );
 			} else {
+				content = $.html();
 				grunt.file.write( dest, content );
 			}
 		} else {
@@ -162,31 +166,48 @@ grunt.registerTask( "build-demos", function() {
 	// Create list of all demos
 	grunt.file.write( targetDir + "/demo-list.json", JSON.stringify( demoList, null, "\t" ) );
 
-	// Copy externals into /resources/demos/external
-	grunt.file.expand( { filter: "isFile" }, externalDir + "/**" ).forEach(function( filename ) {
-		grunt.file.copy( filename, targetDir + "/external/" + filename.replace( externalDir, "" ) );
-	});
+	function deAmd( $, destDir ) {
+		var i18n, globalize,
+			bootstrap = $( "script[src='../bootstrap.js']" ),
+			require = $( "script[src='../../external/requirejs/require.js']" ),
+			extra = bootstrap.attr( "data-modules" );
+
+		// Replace the src on the first tag with core
+		require
+			.replaceWith(
+				"<script src='https://code.jquery.com/jquery-" + jqueryCore + ".js'></script>"
+			)
+
+			// Add a script tag for UI after
+			.after( "\n\t<script src=\"https://code.jquery.com/ui/" +
+				pkg.version + "/jquery-ui.js\"></script>" );
+
+		if ( extra ) {
+			i18n = extra.match( /\S+/g ).filter( function( value ) {
+				return /i18n/.test( value );
+			} );
+			external = extra.match( /\S+/g ).filter( function( value ) {
+				return /external/.test( value );
+			} );
+			if ( i18n.length ) {
+				i18n.forEach( function( file ) {
+					grunt.file.copy( repoDir + "/ui/" + file + ".js", destDir + file + ".js" );
+					bootstrap.before( "<script src=\"" + file + ".js\"></script>\n\t" );
+				} );
+			}
+			if ( external.length ) {
+				external.forEach( function( file ) {
+					grunt.file.copy( repoDir + "/" + file + ".js", targetDir + "/" + file + ".js" );
+					bootstrap.before( "<script src=\"/resources/demos/" + file + ".js\"></script>\n\t" );
+				} );
+			}
+		}
+
+		bootstrap
+			.replaceWith( "<script>\n\t$( function() {" + bootstrap.html() + "} );\n\t</script>" );
+	}
 
 	function replaceResources( source ) {
-		// ../../jquery-x.y.z.js -> CDN
-		source = source.replace(
-			/<script src="\.\.\/\.\.\/external\/jquery\/jquery\.js">/,
-			"<script src=\"//code.jquery.com/jquery-" + jqueryCore + ".js\">" );
-
-		// ../../ui/* -> CDN
-		// Only the first script is replaced, all subsequent scripts are dropped,
-		// including the full line
-		source = source.replace(
-			/<script src="\.\.\/\.\.\/ui\/[^>]+>/,
-			"<script src=\"//code.jquery.com/ui/" + pkg.version + "/jquery-ui.js\">" );
-		source = source.replace(
-			/^.*<script src="\.\.\/\.\.\/ui\/[^>]+><\/script>\n/gm,
-			"" );
-
-		// ../../external/* -> /resources/demos/external/*
-		source = source.replace(
-			/<script src="\.\.\/\.\.\/external\//g,
-			"<script src=\"/resources/demos/external/" );
 
 		// ../../ui/themes/* -> CDN
 		source = source.replace(
