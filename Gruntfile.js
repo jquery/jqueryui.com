@@ -77,6 +77,10 @@ grunt.registerTask( "build-download", function() {
 	});
 });
 
+// Build demos
+//
+//     grunt build-demos[:optionalJqueryUiPath]
+//
 grunt.registerTask( "build-demos", function() {
 	function sortByTitle( a, b ) {
 		if ( a.filename === "default" ) {
@@ -88,22 +92,28 @@ grunt.registerTask( "build-demos", function() {
 		return a.title.toLowerCase() > b.title.toLowerCase() ? 1 : -1;
 	}
 
-	// We hijack the jquery-ui checkout from download.jqueryui.com
-	this.requires( "build-download" );
-
-	var jqueryCore, subdir,
+	var demosDir, externalDir, jqueryCore, repoDir, pkg, subdir,
 		path = require( "path" ),
 		cheerio = require( "cheerio" ),
-		downloadBuilder = require( "download.jqueryui.com" ),
-		stable = downloadBuilder.JqueryUi.getStable(),
-		repoDir = path.normalize( stable.path ),
-		demosDir = repoDir + "demos",
-		externalDir = (repoDir + "external").replace( process.cwd() + "/", "" ),
 		targetDir = grunt.config( "wordpress.dir" ) + "/resources/demos",
 		highlightDir = targetDir + "-highlight",
 		demoList = {};
 
-	jqueryCore = stable.files().jqueryCore[ 0 ].data.match( /jQuery JavaScript Library v([0-9.]*)/ )[ 1 ];
+	if ( this.args.length ) {
+		repoDir = this.args[ 0 ];
+	} else {
+
+		// We hijack the jquery-ui checkout from download.jqueryui.com
+		this.requires( "build-download" );
+		repoDir = require( "download.jqueryui.com" ).JqueryUi.getStable().path;
+	}
+	repoDir = path.resolve( repoDir );
+
+	demosDir = path.join( repoDir, "demos" );
+	externalDir = path.join( repoDir, "external" ).replace( process.cwd() + "/", "" );
+	pkg = require( path.join( repoDir, "package" ) );
+	jqueryCore = fs.readFileSync( path.join( repoDir, "external/jquery/jquery.js" ) )
+		.toString().match( /jQuery JavaScript Library v([0-9.]*)/ )[ 1 ];
 
 	// Copy all demos files to /resources/demos
 	grunt.file.recurse( demosDir, function( abspath, rootdir, subdir, filename ) {
@@ -168,7 +178,7 @@ grunt.registerTask( "build-demos", function() {
 		// including the full line
 		source = source.replace(
 			/<script src="\.\.\/\.\.\/ui\/[^>]+>/,
-			"<script src=\"//code.jquery.com/ui/" + stable.pkg.version + "/jquery-ui.js\">" );
+			"<script src=\"//code.jquery.com/ui/" + pkg.version + "/jquery-ui.js\">" );
 		source = source.replace(
 			/^.*<script src="\.\.\/\.\.\/ui\/[^>]+><\/script>\n/gm,
 			"" );
@@ -181,7 +191,7 @@ grunt.registerTask( "build-demos", function() {
 		// ../../ui/themes/* -> CDN
 		source = source.replace(
 			/<link rel="stylesheet" href="\.\.\/\.\.\/themes[^>]+>/,
-			"<link rel=\"stylesheet\" href=\"//code.jquery.com/ui/" + stable.pkg.version + "/themes/smoothness/jquery-ui.css\">" );
+			"<link rel=\"stylesheet\" href=\"//code.jquery.com/ui/" + pkg.version + "/themes/smoothness/jquery-ui.css\">" );
 
 		// ../demos.css -> /resources/demos/style.css
 		source = source.replace(
