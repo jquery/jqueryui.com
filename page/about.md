@@ -8,7 +8,7 @@ jQuery UI is a curated set of user interface interactions, effects, widgets, and
 
 ### Collaborative design process
 
-The process for designing and planning the future of the jQuery UI library should be open, transparent and in the hands of the community. We welcome input from anyone interested in engaging with the team, from hard-core developers to visual and interaction designers, accessiblity experts, product managers, business people, end users and more.
+The process for designing and planning the future of the jQuery UI library should be open, transparent and in the hands of the community. We welcome input from anyone interested in engaging with the team, from hard-core developers to visual and interaction designers, accessibility experts, product managers, business people, end users and more.
 
 ### Flexible styling and themes
 
