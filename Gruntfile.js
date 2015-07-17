@@ -175,12 +175,9 @@ grunt.registerTask( "build-demos", function() {
 		// Replace the src on the first tag with core
 		require
 			.replaceWith(
-				"<script src='https://code.jquery.com/jquery-" + jqueryCore + ".js'></script>"
-			)
-
-			// Add a script tag for UI after
-			.after( "\n\t<script src=\"https://code.jquery.com/ui/" +
-				pkg.version + "/jquery-ui.js\"></script>" );
+				"<script src='https://code.jquery.com/jquery-" + jqueryCore + ".js'></script>" +
++				"\n\t<script src=\"https://code.jquery.com/ui/" +
++				pkg.version + "/jquery-ui.js\"></script>" );
 
 		if ( extra ) {
 			i18n = extra.match( /\S+/g ).filter( function( value ) {
