@@ -19,6 +19,9 @@
       "url": "https://github.com/jquery/api.jquery.com/blob/master/LICENSE.txt"
     }
   ],
+  "scripts": {
+    "test": "grunt build --stack"
+  },
   "dependencies": {
     "cheerio": "0.12.4",
     "download.jqueryui.com": "2.0.25",
