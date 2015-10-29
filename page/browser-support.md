@@ -4,13 +4,14 @@
 
 ## Current Active Support
 
-jQuery UI 1.11.x supports the following browsers:
+jQuery UI 1.12.x supports the following browsers:
 
 * Chrome: (Current - 1) or Current
 * Firefox: (Current - 1) or Current
-* Safari: 5.1+
-* Opera: 12.1x, (Current - 1) or Current
-* IE 8+
+* Safari: (Current - 1) or Current
+* Opera: (Current - 1) or Current
+* IE: 8-11
+* Edge
 
 Any problem with jQuery UI in the above browsers should be reported as a bug in jQuery UI.
 
