@@ -58,10 +58,6 @@ Mike is a Senior Software Engineer at [Behance](http://blog.behance.net/dev), fr
 
 Xavier rewrote Globalize on top of CLDR and is now its project lead. He also rewrote and maintains jQuery UI's download builder and ThemeRoller. He has a B.S. in Computer Science from University of Sao Paulo, Brazil. He was a Software Engineer at IBM, where he lead the brazilian team of Q&A and Performance at Linux Technology Center.
 
-### [TJ VanToll](http://tjvantoll.com)
-
-TJ VanToll is a web developer, speaker, and writer living in Lansing, MI and working as a developer advocate for [Telerik](http://www.telerik.com/). He works on all facets of jQuery UI including triage, documentation, bug fixes, and is currently working on the rewrite of [the datepicker widget](http://jqueryui.com/datepicker/).
-
 ## Contributors (Past & Present)
 
 ### Aaron Eisenberger
@@ -91,4 +87,5 @@ TJ VanToll is a web developer, speaker, and writer living in Lansing, MI and wor
 ### [Richard D. Worth](http://rdworth.org/)
 ### [Scott Jehl](http://www.filamentgroup.com/)
 ### [Thomas Klose](http://www.thomasklose.com/)
+### [TJ VanToll](http://tjvantoll.com)
 ### [Todd Parker](http://www.filamentgroup.com/)
