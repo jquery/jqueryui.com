@@ -1,5 +1,5 @@
 <script>{
-	"title": "Browser Support"
+    "title": "Browser Support"
 }</script>
 
 ## Current Active Support
@@ -30,7 +30,7 @@ Similarly, jQuery UI does not fix bugs in pre-release versions of browsers, such
 
 ## jQuery Core Browser Support
 
-jQuery UI supports several versions of jQuery Core. The version of jQuery being used may further limit which browsers jQuery UI will run in. See [jQuery's browser support](http://jquery.com/browser-support/) for a list of supported browsers by version.
+jQuery UI supports several versions of jQuery Core. The version of jQuery being used may further limit which browsers jQuery UI will run in. See [jQuery's browser support](https://jquery.com/browser-support/) for a list of supported browsers by version.
 
 ----
 
