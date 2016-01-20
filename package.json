@@ -21,7 +21,7 @@
   ],
   "dependencies": {
     "cheerio": "0.12.4",
-    "download.jqueryui.com": "2.0.27",
+    "download.jqueryui.com": "2.1.5",
     "grunt": "0.4.5",
     "grunt-jquery-content": "3.0.0"
   }
