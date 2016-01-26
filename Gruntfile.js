@@ -68,6 +68,7 @@ grunt.registerTask( "build-download", function() {
 		cwd: "node_modules/download.jqueryui.com"
 	}, function( error, stdout, stderr ) {
 		if ( error ) {
+			grunt.log.error( stdout );
 			grunt.log.error( stderr );
 			return done( error );
 		}
@@ -215,10 +216,11 @@ grunt.registerTask( "create-quickdownload", function() {
 	var done = this.async(),
 		path = require( "path" );
 
-	exec( "grunt build-packages:" + path.resolve( "resources/download" ), {
+	exec( "grunt build-packages:" + path.resolve( "resources/download" ) + " --stack", {
 		cwd: "node_modules/download.jqueryui.com"
 	}, function( error, stdout, stderr ) {
 		if ( error ) {
+			grunt.log.error( stdout );
 			grunt.log.error( stderr );
 			return done( error );
 		}
