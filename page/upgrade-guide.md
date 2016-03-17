@@ -3,6 +3,9 @@
 	"noHeadingLinks": true
 }</script>
 
+## [1.12 Upgrade Guide](/upgrade-guide/1.12/)
+RC.1 released on March 17, 2016
+
 ## [1.11 Upgrade Guide](/upgrade-guide/1.11/)
 Released on June 26, 2014
 
