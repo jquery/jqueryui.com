@@ -4,7 +4,7 @@
 }</script>
 
 ## [1.12.0-rc.2 Changelog](/changelog/1.12.0-rc.2/)
-Released on March 17, 2016
+Released on April 21, 2016
 
 ## [1.12.0-rc.1 Changelog](/changelog/1.12.0-rc.1/)
 Released on March 17, 2016
