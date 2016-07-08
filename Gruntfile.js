@@ -210,7 +210,7 @@ grunt.registerTask( "build-demos", function() {
 		// ../../ui/themes/* -> CDN
 		source = source.replace(
 			/<link rel="stylesheet" href="\.\.\/\.\.\/themes[^>]+>/,
-			"<link rel=\"stylesheet\" href=\"//code.jquery.com/ui/" + pkg.version + "/themes/smoothness/jquery-ui.css\">" );
+			"<link rel=\"stylesheet\" href=\"//code.jquery.com/ui/" + pkg.version + "/themes/base/jquery-ui.css\">" );
 
 		// ../demos.css -> /resources/demos/style.css
 		source = source.replace(
