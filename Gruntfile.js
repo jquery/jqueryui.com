@@ -23,7 +23,7 @@ grunt.initConfig({
 grunt.registerTask( "build-download", function() {
 	function writeFiles() {
 		var frontend = require( "download.jqueryui.com" ).frontend({
-				host: "http://download.jqueryui.com",
+				host: "//download.jqueryui.com",
 				env: "production"
 			}),
 			download = frontend.download,
