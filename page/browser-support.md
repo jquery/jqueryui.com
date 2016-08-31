@@ -11,13 +11,11 @@ jQuery UI 1.12.x supports the following browsers:
 * Safari: (Current - 1) or Current
 * Opera: (Current - 1) or Current
 * IE: 11
-* Edge
+* Edge: (Current - 1) or Current
 
 Any problem with jQuery UI in the above browsers should be reported as a bug in jQuery UI.
 
 *(Current - 1) or Current* denotes that we support the current stable version of the browser and the version that preceded it. For example, if the current version of a browser is 24.x, we support the 24.x and 23.x versions.
-
-*12.1x, (Current - 1) or Current* denotes that we support Opera 12.1x as well as the 2 latest versions of Opera. For example, if the current Opera version is 20.x, we support Opera 12.1x, 19.x and 20.x but not Opera 15.x through 18.x.
 
 ----
 
