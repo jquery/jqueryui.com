@@ -64,7 +64,7 @@ grunt.registerTask( "build-download", function() {
 
 	// At this point, the download builder repo is available, so let's initialize it
 	grunt.log.writeln( "Initializing download module, might take a while..." );
-	exec( "grunt prepare --stack", {
+	exec( "npm install --production", {
 		cwd: "node_modules/download.jqueryui.com"
 	}, function( error, stdout, stderr ) {
 		if ( error ) {
@@ -73,9 +73,19 @@ grunt.registerTask( "build-download", function() {
 			return done( error );
 		}
 
-		writeFiles();
-		done();
-	});
+		exec( "grunt prepare --stack", {
+			cwd: "node_modules/download.jqueryui.com"
+		}, function( error, stdout, stderr ) {
+			if ( error ) {
+				grunt.log.error( stdout );
+				grunt.log.error( stderr );
+				return done( error );
+			}
+
+			writeFiles();
+			done();
+		});
+	})
 });
 
 // Build demos
