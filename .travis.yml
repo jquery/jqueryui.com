@@ -1,0 +1,11 @@
+sudo: false
+addons:
+  apt:
+    packages:
+    - imagemagick
+language: node_js
+node_js:
+  - "0.12"
+before_script:
+  - npm install -g grunt-cli
+  - cp config-sample.json config.json
