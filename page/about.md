@@ -38,9 +38,9 @@ Given the global audience for jQuery UI, we should embrace the ability to make o
 
 There's a lot of work that goes into making jQuery UI the most successful UI library for the Web. Between API design, visual design, implementation, ticket triage, bug fixing, developer relations, infrastructure, and everything else, most of the work is done by volunteers. We'd like to recognize the most prominent contributors below, for a full list of all contributors, see the [authors list](https://github.com/jquery/jquery-ui/blob/master/AUTHORS.txt).
 
-### [Scott González](http://nemikor.com/) — Project Lead
+### [Alex Schmitz](http://arschmitz.me/) — Project Lead
 
-Scott González is a web developer living in York, PA. As project lead, he puts a lot of effort into keeping jQuery UI efficient, consistent, and accessible, as well as adjusting the roadmap to meet the ever-changing needs of the community. Scott also works with browser vendors and standards bodies to make the Web a better place for everyone, not just jQuery users.
+Alex is the Project Lead for jQuery UI, jQuery Mobile, and Hammer.js and is a team member on the Chassis CSS Framework, and PEP ( Pointer Events Polyfill ) projects, in addition he assists the jQuery Infrastructure and Content Teams. Alex works for Clipper Digital as the Senior front end architect. Alex is a passionate and vocal advocate of accessibility, open source technology, and the future of mobile web.
 
 ### [Jörn Zaefferer](http://bassistance.de/) — Development Lead
 
@@ -85,6 +85,7 @@ Xavier rewrote Globalize on top of CLDR and is now its project lead. He also rew
 ### [Ralph Whitbeck](http://ralphwhitbeck.com/)
 ### Rich Caloggero
 ### [Richard D. Worth](http://rdworth.org/)
+### [Scott González](http://nemikor.com/)
 ### [Scott Jehl](http://www.filamentgroup.com/)
 ### [Thomas Klose](http://www.thomasklose.com/)
 ### [TJ VanToll](http://tjvantoll.com)
