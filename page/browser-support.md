@@ -4,7 +4,7 @@
 
 ## Current Active Support
 
-jQuery UI 1.12.x supports the following browsers:
+jQuery UI 1.13.x supports the following browsers:
 
 * Chrome: (Current - 1) or Current
 * Firefox: (Current - 1) or Current
