@@ -2,6 +2,11 @@
 	"title": "All jQuery UI Downloads"
 }</script>
 
+## 1.13.0-rc.3
+* Released on September 25, 2021
+* [jQuery UI 1.13.0-rc.3 (concatenated JS and CSS files)](/resources/download/jquery-ui-1.13.0-rc.3.zip)
+* [jQuery UI 1.13.0-rc.3 Themes](/resources/download/jquery-ui-themes-1.13.0-rc.3.zip)
+
 ## 1.13.0-rc.2
 * Released on September 3, 2021
 * [jQuery UI 1.13.0-rc.2 (concatenated JS and CSS files)](/resources/download/jquery-ui-1.13.0-rc.2.zip)
