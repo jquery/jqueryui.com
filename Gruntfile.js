@@ -64,7 +64,9 @@ grunt.registerTask( "build-download", function() {
 
 	// At this point, the download builder repo is available, so let's initialize it
 	grunt.log.writeln( "Initializing download module, might take a while..." );
-	exec( "npm install --production", {
+	// TODO: Prefer --omit=dev but can't because `grunt prepare` runs grunt-check-modules,
+	// which fails if a dev dependency is missing.
+	exec( "npm install", {
 		cwd: "node_modules/download.jqueryui.com"
 	}, function( error, stdout, stderr ) {
 		if ( error ) {
