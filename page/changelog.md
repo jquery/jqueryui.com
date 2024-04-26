@@ -3,6 +3,9 @@
 	"noHeadingLinks": true
 }</script>
 
+## [1.13.3 Changelog](/changelog/1.13.3/)
+Released on April 26, 2024
+
 ## [1.13.2 Changelog](/changelog/1.13.2/)
 Released on July 14, 2022
 

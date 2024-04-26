@@ -2,6 +2,11 @@
 	"title": "All jQuery UI Downloads"
 }</script>
 
+## 1.13.3
+* Released on April 26, 2024
+* [jQuery UI 1.13.3 (concatenated JS and CSS files)](/resources/download/jquery-ui-1.13.3.zip)
+* [jQuery UI 1.13.3 Themes](/resources/download/jquery-ui-themes-1.13.3.zip)
+
 ## 1.13.2
 * Released on July 14, 2022
 * [jQuery UI 1.13.2 (concatenated JS and CSS files)](/resources/download/jquery-ui-1.13.2.zip)

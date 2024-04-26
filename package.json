@@ -3,8 +3,8 @@
   "version": "1.13.13",
   "private": true,
   "dependencies": {
-    "cheerio": "^1.0.0-rc.12",
-    "download.jqueryui.com": "2.2.11",
+    "cheerio": "1.0.0-rc.12",
+    "download.jqueryui.com": "2.2.15",
     "grunt": "1.6.1",
     "grunt-jquery-content": "3.3.1"
   }
