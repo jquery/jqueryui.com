@@ -12,7 +12,7 @@ The process for designing and planning the future of the jQuery UI library shoul
 
 ### Flexible styling and themes
 
-Widgets should provide hooks to enable developers to customize both behavioral and presentational aspects. Transition animations should be optional and customizable. Class names used on internal elements should be meaningful to jQuery UI users and enable styling either through [ThemeRoller](http://jqueryui.com/themeroller/) or hand-written CSS via the [jQuery UI CSS Framework](http://learn.jquery.com/jquery-ui/theming/). As much as possible, style attributes should be separated into the plugin's CSS, not within the scripts in order to make customization simple and clear. Widgets styles should be coded with proportional (em-based or % based) sizing and should re-flow horizontally to fill the space provided.
+Widgets should provide hooks to enable developers to customize both behavioral and presentational aspects. Transition animations should be optional and customizable. Class names used on internal elements should be meaningful to jQuery UI users and enable styling either through [ThemeRoller](https://jqueryui.com/themeroller/) or hand-written CSS via the [jQuery UI CSS Framework](https://learn.jquery.com/jquery-ui/theming/). As much as possible, style attributes should be separated into the plugin's CSS, not within the scripts in order to make customization simple and clear. Widgets styles should be coded with proportional (em-based or % based) sizing and should re-flow horizontally to fill the space provided.
 
 ### Elegant visual and interaction design
 
@@ -48,7 +48,7 @@ Jörn is a freelance web developer, consultant and trainer, residing in Cologne,
 
 ### [Felix Nagel](http://www.felixnagel.com/)
 
-Felix is a [freelance web developer](http://www.felixnagel.com/portfolio/) specializing in TYPO3 CMS and Symfony2 development. He is currently living in Dresden, Germany. Felix has built the [Selectmenu](http://jqueryui.com/selectmenu/) widget and is currently working on the [Datepicker](http://jqueryui.com/datepicker/) widget.
+Felix is a [freelance web developer](http://www.felixnagel.com/portfolio/) specializing in TYPO3 CMS and Symfony2 development. He is currently living in Dresden, Germany. Felix has built the [Selectmenu](https://jqueryui.com/selectmenu/) widget and is currently working on the [Datepicker](https://jqueryui.com/datepicker/) widget.
 
 ### [Mike Sherov](http://mike.sherov.com)
 
