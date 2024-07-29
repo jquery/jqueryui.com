@@ -129,14 +129,18 @@ grunt.registerTask( "build-demos", function() {
 
 	// Copy all demos files to /resources/demos
 	grunt.file.recurse( demosDir, function( abspath, rootdir, subdir, filename ) {
+		if ( filename.startsWith( "." ) ) {
+			return;
+		}
+
 		if ( filename === "index.html" ) {
 			return;
 		}
 
 		var content, $,
-			destDir = targetDir + "/" + subdir + "/",
+			destDir = `${ targetDir }${ subdir ? `/${ subdir }` : "" }/`,
 			dest = destDir + filename,
-			highlightDest = highlightDir + "/" + subdir + "/" + filename;
+			highlightDest = `${ highlightDir }${ subdir ? `/${ subdir }` : "" }/${ filename }`;
 
 		if ( /html$/.test( filename ) ) {
 			content = replaceResources( grunt.file.read( abspath ) );
