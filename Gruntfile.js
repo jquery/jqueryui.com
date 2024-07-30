@@ -105,7 +105,7 @@ grunt.registerTask( "build-demos", function() {
 		return a.title.toLowerCase() > b.title.toLowerCase() ? 1 : -1;
 	}
 
-	var demosDir, externalDir, jqueryCore, repoDir, pkg, subdir,
+	var demosDir, jqueryCore, repoDir, pkg, subdir,
 		path = require( "path" ),
 		cheerio = require( "cheerio" ),
 		targetDir = grunt.config( "wordpress.dir" ) + "/resources/demos",
@@ -123,21 +123,24 @@ grunt.registerTask( "build-demos", function() {
 	repoDir = path.resolve( repoDir );
 
 	demosDir = path.join( repoDir, "demos" );
-	externalDir = path.join( repoDir, "external" ).replace( process.cwd() + "/", "" );
 	pkg = require( path.join( repoDir, "package" ) );
 	jqueryCore = fs.readFileSync( path.join( repoDir, "external/jquery/jquery.js" ) )
 		.toString().match( /jQuery JavaScript Library v([0-9.]*)/ )[ 1 ];
 
 	// Copy all demos files to /resources/demos
 	grunt.file.recurse( demosDir, function( abspath, rootdir, subdir, filename ) {
+		if ( filename.startsWith( "." ) ) {
+			return;
+		}
+
 		if ( filename === "index.html" ) {
 			return;
 		}
 
 		var content, $,
-			destDir = targetDir + "/" + subdir + "/",
+			destDir = `${ targetDir }${ subdir ? `/${ subdir }` : "" }/`,
 			dest = destDir + filename,
-			highlightDest = highlightDir + "/" + subdir + "/" + filename;
+			highlightDest = `${ highlightDir }${ subdir ? `/${ subdir }` : "" }/${ filename }`;
 
 		if ( /html$/.test( filename ) ) {
 			content = replaceResources( grunt.file.read( abspath ) );
@@ -180,7 +183,7 @@ grunt.registerTask( "build-demos", function() {
 	grunt.file.write( targetDir + "/demo-list.json", JSON.stringify( demoList, null, "\t" ) );
 
 	function deAmd( $, destDir ) {
-		var i18n, globalize,
+		var i18n, external,
 			bootstrap = $( "script[src='../bootstrap.js']" ),
 			require = $( "script[src='../../external/requirejs/require.js']" ),
 			extra = bootstrap.attr( "data-modules" );
