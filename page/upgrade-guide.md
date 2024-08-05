@@ -3,6 +3,9 @@
 	"noHeadingLinks": true
 }</script>
 
+## [1.14 Upgrade Guide](/upgrade-guide/1.14/)
+Released on August 5, 2024
+
 ## [1.13 Upgrade Guide](/upgrade-guide/1.13/)
 Released on October 7, 2021
 
