@@ -43,7 +43,7 @@ jQuery UI officially tries to support the most popular screen reader and browser
 
 However, due to [limited resources](https://blog.jqueryui.com/2021/10/jquery-maintainers-update-and-transition-jquery-ui-as-part-of-overall-modernization-efforts/), we rely on the community to report issues in the configurations above.
 
-Unfortunately limitations and bugs in some of these assistive technologies make it hard to support all of them at the same time. We do our best to support the widest range while advocating for improved accessibility standards. See the <a href="https://webaim.org/projects/screenreadersurvey5/#primary">screen reader survey</a> for usage statistics.
+Unfortunately limitations and bugs in some of these assistive technologies make it hard to support all of them at the same time. We do our best to support the widest range while advocating for improved accessibility standards. See the [Screen Reader User Survey #10](https://webaim.org/projects/screenreadersurvey10/#browsercombos) for usage statistics.
 
 ### Older/Other Assistive Technology
 
