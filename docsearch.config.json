@@ -4,6 +4,10 @@
     { "url": "https://api.jqueryui.com", "selectors_key": "api", "page_rank": 20 },
     { "url": "https://jqueryui.com", "page_rank": 10 }
   ],
+  "sitemap_urls": [
+    "https://jqueryui.com/wp-sitemap.xml",
+    "https://api.jqueryui.com/wp-sitemap.xml"
+  ],
   "// stop_urls": [
     "// Exclude URLs containing '?' such as /themeroller/?..."
   ],
