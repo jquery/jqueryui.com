@@ -1,6 +1,6 @@
 {
   "name": "jqueryui.com",
-  "version": "1.16.6",
+  "version": "1.16.7",
   "private": true,
   "dependencies": {
     "cheerio": "1.0.0",
