@@ -1,5 +1,8 @@
 <script>{
 	"title": "jQuery UI Upgrade Guides",
+	"termSlugs": {
+		"category": [ "meta" ]
+	},
 	"noHeadingLinks": true
 }</script>
 

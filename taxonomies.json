@@ -19,6 +19,10 @@
 		{
 			"slug": "utilities",
 			"name": "Utilities"
+		},
+		{
+			"slug": "meta",
+			"name": "Project"
 		}
 	]
 }
