@@ -66,7 +66,9 @@ grunt.registerTask( "build-download", function() {
 	grunt.log.writeln( "Initializing download module, might take a while..." );
 	// TODO: Prefer --omit=dev but can't because `grunt prepare` runs grunt-check-modules,
 	// which fails if a dev dependency is missing.
-	exec( "npm install", {
+	// Since the builder sets `NODE_ENV=production`, we need to set `--omit=''` explicitly
+	// or it'd skip installing dev dependencies.
+	exec( "npm install --omit=''", {
 		cwd: "node_modules/download.jqueryui.com"
 	}, function( error, stdout, stderr ) {
 		if ( error ) {
@@ -87,7 +89,7 @@ grunt.registerTask( "build-download", function() {
 			writeFiles();
 			done();
 		});
-	})
+	});
 });
 
 // Build demos
