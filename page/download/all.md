@@ -2,6 +2,11 @@
 	"title": "All jQuery UI Downloads"
 }</script>
 
+## 1.14.2
+Released on January 28, 2026
+* [jQuery UI 1.14.2 (concatenated JS and CSS files)](/resources/download/jquery-ui-1.14.2.zip)
+* [jQuery UI 1.14.2 Themes](/resources/download/jquery-ui-themes-1.14.2.zip)
+
 ## 1.14.1
 Released on October 30, 2024
 * [jQuery UI 1.14.1 (concatenated JS and CSS files)](/resources/download/jquery-ui-1.14.1.zip)
