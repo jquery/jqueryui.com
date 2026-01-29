@@ -1,5 +1,8 @@
 <script>{
 	"title": "jQuery UI Changelogs",
+	"termSlugs": {
+		"category": [ "meta" ]
+	},
 	"noHeadingLinks": true
 }</script>
 
