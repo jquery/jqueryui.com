@@ -4,8 +4,8 @@
   "private": true,
   "dependencies": {
     "cheerio": "1.0.0",
-    "download.jqueryui.com": "2.4.8",
+    "download.jqueryui.com": "2.5.0",
     "grunt": "1.6.1",
-    "grunt-jquery-content": "3.3.1"
+    "grunt-jquery-content": "3.3.2"
   }
 }
